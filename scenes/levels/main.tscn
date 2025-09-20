@@ -78,6 +78,7 @@ offset_right = 1840.0
 offset_bottom = 946.0
 
 [node name="ColorRect" type="ColorRect" parent="Molde/PowerUP_Area"]
+layout_mode = 0
 offset_left = 1743.0
 offset_top = 736.0
 offset_right = 1835.0
