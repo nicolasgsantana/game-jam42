@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8df74ncyro81"]
+
+[ext_resource type="Script" uid="uid://bkp5k6cvy7gkv" path="res://scenes/command_line.gd" id="1_p4bd7"]
+
+[node name="CommandLine" type="Node2D"]
+script = ExtResource("1_p4bd7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0025
+anchor_bottom = 1.0
+offset_right = 39.0
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 28
+theme_override_font_sizes/italics_font_size = 28
+theme_override_font_sizes/mono_font_size = 28
+theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/bold_font_size = 28
+text = "$>"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerInput" type="RichTextLabel" parent="Control/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.115
+anchor_right = 0.1175
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_right = 313.0
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 28
+theme_override_font_sizes/italics_font_size = 28
+theme_override_font_sizes/mono_font_size = 28
+theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/bold_font_size = 28
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

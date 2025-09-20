@@ -1,5 +1,6 @@
 extends Node
 
+signal buffer_changed(buffer: Array)
 
 ## A buffer of previous entered key codes
 var buffer: Array = []
@@ -33,6 +34,7 @@ func _unhandled_input(event) -> void:
 		if event.keycode == enter_keycode:
 			_confirm_sequence(buffer)
 		_check_sequence(buffer)
+		buffer_changed.emit(buffer)
 
 
 func _build_sequences() -> void:
@@ -46,22 +48,22 @@ func _build_sequences() -> void:
 	print(sequences, _sequences)
 
 
-func _check_sequence(buffer: Array) -> void:
+func _check_sequence(local_buffer: Array) -> void:
 	var possible_sequences: int = 0
 	for sequence in _sequences:
-		if buffer == sequence.slice(0, buffer.size()):
+		if local_buffer == sequence.slice(0, local_buffer.size()):
 			possible_sequences += 1
 	print("Possible sequences ", possible_sequences)
 	if possible_sequences == 0:
 		print("Buffer cleared")
-		buffer.clear()
+		local_buffer.clear()
 
 
-func _confirm_sequence(buffer: Array) -> void:
+func _confirm_sequence(local_buffer: Array) -> void:
 	for sequence in _sequences:
-		if sequence == buffer.slice(-sequence.size()):
+		if sequence == local_buffer.slice(-sequence.size()):
 			_sequences[sequence].call()
-			buffer.clear()
+			local_buffer.clear()
 
 
 func _seq_lol() -> void:
