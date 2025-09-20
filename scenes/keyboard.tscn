@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bvcx5saan0jut"]
 
-[ext_resource type="Texture2D" uid="uid://dnjpoho25mvqq" path="res://sprites/Keyboard Black.png" id="1_attx4"]
+[ext_resource type="Texture2D" uid="uid://84nkvdd6qp7e" path="res://sprites/Keyboard Black.png" id="1_attx4"]
 
 [node name="Keyboard" type="Node2D"]
 
@@ -578,3 +578,20 @@ texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(192, 112, 16, 16)
+
+[node name="KeyMinus" type="Node2D" parent="."]
+position = Vector2(156, -14)
+
+[node name="Normal" type="Sprite2D" parent="KeyMinus"]
+texture_filter = 1
+texture = ExtResource("1_attx4")
+region_enabled = true
+region_rect = Rect2(48, 208, 16, 16)
+
+[node name="Pressed" type="Sprite2D" parent="KeyMinus"]
+visible = false
+texture_filter = 1
+texture = ExtResource("1_attx4")
+offset = Vector2(0, -1)
+region_enabled = true
+region_rect = Rect2(48, 225, 16, 16)

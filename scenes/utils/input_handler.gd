@@ -70,3 +70,4 @@ func _seq_lol() -> void:
 
 func _seq_brb() -> void:
 	print("Be right back!")
+	
