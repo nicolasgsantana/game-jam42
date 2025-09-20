@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://deaqqefb1ym5x"]
 
-[ext_resource type="Script" uid="uid://cswlmcru4iang" path="res://scripts/enemy_spawner_basic.gd" id="1_08fsr"]
+[ext_resource type="Script" uid="uid://cswlmcru4iang" path="res://scripts/enemy_spawner_basic.gd" id="1_fg8bm"]
 
 [node name="EnemySpawnerBasic" type="Node2D"]
-script = ExtResource("1_08fsr")
+script = ExtResource("1_fg8bm")
 
 [node name="upline1" type="Marker2D" parent="."]
 position = Vector2(2018, 260)
@@ -24,6 +24,7 @@ position = Vector2(2016, 482)
 position = Vector2(2133, 481)
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="EnemySpawnArea" type="ColorRect" parent="."]
 offset_left = 2220.0
@@ -31,3 +32,5 @@ offset_top = 180.0
 offset_right = 2660.0
 offset_bottom = 538.0
 color = Color(0.341783, 0.2346, 0.0553825, 1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
