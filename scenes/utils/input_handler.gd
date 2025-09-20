@@ -1,19 +1,13 @@
 extends Node
 
 signal buffer_changed(buffer: Array)
+signal command_sent(command: String, difficulty: int)
 
 ## A buffer of previous entered key codes
 var buffer: Array = []
 
-## The configured text and the commands to trigger
-var sequences: Dictionary[String, Callable] = {
-	"LS": _seq_lol,
-	"RM -RF": _seq_brb,
-	"GERALT OF RIVIA": _seq_brb
-}
-
 ## The processed sequences, converted from string to an array of ascii keys
-var _sequences: Dictionary[Array, Callable] = {}
+var _sequences: Dictionary[Array, int] = {}
 
 ## The longest sequence we need to handle
 var max_sequence_length: int
@@ -33,6 +27,7 @@ func _unhandled_input(event) -> void:
 			buffer.append(event.keycode)
 		if event.keycode == enter_keycode:
 			_confirm_sequence(buffer)
+			buffer_changed.emit(buffer)
 		_check_sequence(buffer)
 		buffer_changed.emit(buffer)
 
@@ -40,12 +35,13 @@ func _unhandled_input(event) -> void:
 func _build_sequences() -> void:
 	_sequences.clear()
 	max_sequence_length = 0
-	for sequence in sequences:
-		_sequences[Array(sequence.to_ascii_buffer())] = sequences[sequence]
+	var command_dict: Dictionary = GlobalData.command_dict
+	for sequence in command_dict:
+		_sequences[Array(sequence.to_ascii_buffer())] = command_dict[sequence]
 		if max_sequence_length < sequence.length():
 			max_sequence_length = sequence.length()
 	
-	print(sequences, _sequences)
+	print(command_dict, _sequences)
 
 
 func _check_sequence(local_buffer: Array) -> void:
@@ -62,14 +58,5 @@ func _check_sequence(local_buffer: Array) -> void:
 func _confirm_sequence(local_buffer: Array) -> void:
 	for sequence in _sequences:
 		if sequence == local_buffer.slice(-sequence.size()):
-			_sequences[sequence].call()
-			local_buffer.clear()
-
-
-func _seq_lol() -> void:
-	print("Laughing out loud!")
-
-
-func _seq_brb() -> void:
-	print("Be right back!")
-	
+			command_sent.emit(sequence, _sequences[sequence])
+	local_buffer.clear()

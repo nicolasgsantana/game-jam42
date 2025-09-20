@@ -3,8 +3,11 @@ extends CharacterBody2D
 @export var speed: int = 200
 var is_dead: bool = false
 
+var command_list: Array = [
+	"LS", "RM -RF", "GERALT OF RIVIA"
+]
+
 func _ready():
-	# Adiciona o inimigo ao grupo "enemies"
 	add_to_group("enemies")
 
 	for child in get_children():
@@ -26,8 +29,7 @@ func _process(delta: float) -> void:
 
 func die():
 	is_dead = true
-	set_physics_process(false)
-
+	
 	var animated_sprite = get_node_or_null("AnimatedSprite2D")
 	
 	if animated_sprite and animated_sprite.sprite_frames:
