@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://snq3ghjdnf26"]
+
+[ext_resource type="Script" uid="uid://c4u7sgp4ietn" path="res://text/enemies_dialogs.gd" id="1_6301n"]
+[ext_resource type="FontFile" uid="uid://c3nxvmli3envj" path="res://text/PixelOperator8-Bold.ttf" id="1_krjn7"]
+
+[node name="enemies_dialogs" type="Node2D"]
+position = Vector2(1268, 87)
+script = ExtResource("1_6301n")
+
+[node name="fala1" type="RichTextLabel" parent="."]
+offset_left = -617.0
+offset_top = -53.0
+offset_right = 602.0
+offset_bottom = 53.0
+theme_override_fonts/normal_font = ExtResource("1_krjn7")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[shake]Bugs, atacar![/shake]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fala2" type="RichTextLabel" parent="."]
+offset_left = -614.0
+offset_top = -54.0
+offset_right = 605.0
+offset_bottom = 52.0
+theme_override_fonts/normal_font = ExtResource("1_krjn7")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[shake]Você não tem chance![/shake]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fala3" type="RichTextLabel" parent="."]
+offset_left = -613.0
+offset_top = -48.0
+offset_right = 606.0
+offset_bottom = 58.0
+theme_override_fonts/normal_font = ExtResource("1_krjn7")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[shake]Seu tempo está chegando ao fim![/shake]"
+horizontal_alignment = 1
+vertical_alignment = 1
