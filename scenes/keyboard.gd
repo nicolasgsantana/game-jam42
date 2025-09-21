@@ -3,7 +3,7 @@ extends Node2D
 var keys: Dictionary[int, Node2D]
 
 func _ready() -> void:
-	for child in get_children():
+	for child in $Keys.get_children():
 		keys[child.get_meta("keycode")] = child
 	print(keys)
 	

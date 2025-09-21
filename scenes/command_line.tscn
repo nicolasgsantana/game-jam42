@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8df74ncyro81"]
+[gd_scene load_steps=3 format=3 uid="uid://b8df74ncyro81"]
 
 [ext_resource type="Script" uid="uid://bkp5k6cvy7gkv" path="res://scenes/command_line.gd" id="1_p4bd7"]
+[ext_resource type="Texture2D" uid="uid://c7235dgcuxgin" path="res://sprites/terminal_base.png" id="2_iywas"]
 
 [node name="CommandLine" type="Node2D"]
 script = ExtResource("1_p4bd7")
@@ -11,14 +12,24 @@ anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 40.0
 
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(198.5, 60.25)
+scale = Vector2(1.99167, 1.99167)
+texture = ExtResource("2_iywas")
+
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 50.0
+offset_right = 13.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect"]
 texture_filter = 1
