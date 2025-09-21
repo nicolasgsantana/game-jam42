@@ -84,6 +84,9 @@ func _on_mini_cool_down_timeout() -> void:
 func _on_life_time_timeout() -> void:
 	$CoolDown.stop()
 	await get_tree().create_timer(0.5).timeout
+	$AnimatedSprite2D.play("death")
 	for enemy in enemy_node.get_children():
 		enemy.die()
 	defeated.emit()
+	await get_tree().create_timer(0.5).timeout
+	hide()

@@ -160,7 +160,7 @@ volume_db = -5.0
 
 [node name="Moulinette" parent="." instance=ExtResource("4_hwp66")]
 visible = false
-position = Vector2(1766, 391)
+position = Vector2(1624, 414)
 
 [connection signal="buffer_changed" from="InputHandler" to="GameManager" method="_on_input_handler_buffer_changed"]
 [connection signal="buffer_changed" from="InputHandler" to="CommandLine" method="_on_input_handler_buffer_changed"]

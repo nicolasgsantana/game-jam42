@@ -3,7 +3,7 @@ extends Node
 
 @export var score_label: Label
 @onready var sfx_main = $"../sfx_main"
-@export var boss_treshhold: int = 1
+@export var boss_treshhold: int = 40
 
 var player_score: int = 0
 var combat_area: Area2D
@@ -29,6 +29,7 @@ func add_score(points: int):
 	if player_score >= boss_treshhold and not is_boss_called:
 		is_boss_called = true
 		$"../EnemySpawnerBasic".stop_timer()
+		await get_tree().create_timer(1).timeout
 		$"../Moulinette".start_boss()
 
 

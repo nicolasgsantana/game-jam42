@@ -1,47 +1,29 @@
 [gd_scene load_steps=10 format=3 uid="uid://b0h857r3xqchk"]
 
-[ext_resource type="Texture2D" uid="uid://bnqpoxevqsnw4" path="res://icon.svg" id="1_4imyg"]
 [ext_resource type="Script" uid="uid://sc1voycl3aly" path="res://moulinette.gd" id="1_iqjl6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iqjl6"]
-atlas = ExtResource("1_4imyg")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_um1v4"]
-atlas = ExtResource("1_4imyg")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sc3cy"]
-atlas = ExtResource("1_4imyg")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j060c"]
-atlas = ExtResource("1_4imyg")
-region = Rect2(64, 32, 32, 32)
+[ext_resource type="Texture2D" uid="uid://drrsnnw6rxdsj" path="res://sprites/boss/boos-move.png" id="2_iqjl6"]
+[ext_resource type="Texture2D" uid="uid://dmyjlef2m5djr" path="res://sprites/boss/boss-died.png" id="2_sc3cy"]
+[ext_resource type="Texture2D" uid="uid://d3e0qgi8x1pyd" path="res://sprites/boss/boss-dano.png" id="3_j060c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcoir"]
-atlas = ExtResource("1_4imyg")
-region = Rect2(64, 64, 32, 32)
+atlas = ExtResource("2_sc3cy")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pwtrf"]
-atlas = ExtResource("1_4imyg")
-region = Rect2(96, 64, 32, 32)
+atlas = ExtResource("3_j060c")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um1v4"]
+atlas = ExtResource("2_iqjl6")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc3cy"]
+atlas = ExtResource("2_iqjl6")
+region = Rect2(512, 512, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y73n3"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iqjl6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_um1v4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sc3cy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j060c")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qcoir")
 }, {
@@ -49,17 +31,29 @@ animations = [{
 "texture": SubResource("AtlasTexture_pwtrf")
 }],
 "loop": true,
-"name": &"default",
+"name": &"death",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um1v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc3cy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
 }]
 
 [node name="Moulinette" type="Node2D"]
 script = ExtResource("1_iqjl6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 10)
 sprite_frames = SubResource("SpriteFrames_y73n3")
-frame = 4
-frame_progress = 0.911445
+animation = &"death"
+autoplay = "default"
 
 [node name="Spawn Points" type="Node2D" parent="."]
 
@@ -75,11 +69,11 @@ position = Vector2(-100, 200)
 [node name="Spawns" type="Node2D" parent="."]
 
 [node name="LifeTime" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 20.0
 one_shot = true
 
 [node name="CoolDown" type="Timer" parent="."]
-wait_time = 0.9
+wait_time = 0.7
 
 [node name="MiniCoolDown" type="Timer" parent="."]
 wait_time = 0.2
