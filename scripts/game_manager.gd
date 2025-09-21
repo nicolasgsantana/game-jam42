@@ -2,13 +2,13 @@
 extends Node
 
 @export var score_label: Label
-
+@onready var sfx_main = $"../sfx_main"
 var player_score: int = 0
 var combat_area: Area2D
 
 func _ready():
 	combat_area = $"../CombatArea"
-
+	sfx_main.play()
 
 func get_enemies_in_combat_area() -> Array:
 	var enemies = []

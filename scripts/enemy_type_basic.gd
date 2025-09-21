@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed: int = 200
 @export var difficulty: int = 2
+@onready var sfx_explosion = $sfx_explosion
 var is_dead: bool = false
 var command: String
 
@@ -35,6 +36,7 @@ func die():
 			child.visible = false
 	animated_sprite.stop()
 	animated_sprite.play("Death")
+	sfx_explosion.play()
 	await animated_sprite.animation_finished
 	queue_free()
 

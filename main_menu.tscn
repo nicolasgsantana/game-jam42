@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://fo34y7jir6of"]
+[gd_scene load_steps=3 format=3 uid="uid://fo34y7jir6of"]
 
 [ext_resource type="Script" uid="uid://c141p0c3q4yjk" path="res://scripts/MainMenu.gd" id="1_06t4h"]
+[ext_resource type="AudioStream" uid="uid://bkfqb0iocrfcb" path="res://sprites/ogg_audios/ogg/menu.ogg" id="2_7vrkn"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("play_button", "quit_button")]
 layout_mode = 3
@@ -45,3 +46,6 @@ text = "JOGAR U JOGU"
 layout_mode = 2
 theme_override_font_sizes/font_size = 144
 text = "SAIR DAQUI"
+
+[node name="sfx_mainmenu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_7vrkn")

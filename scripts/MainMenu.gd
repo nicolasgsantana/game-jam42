@@ -1,12 +1,12 @@
-
 # MainMenu.gd
 extends Control
 
 @export var play_button: Button
 @export var quit_button: Button
-
+@onready var sfx_mainmenu = $sfx_mainmenu
 func _ready():
 	# Conectar os botões
+	sfx_mainmenu.play()
 	if play_button:
 		play_button.pressed.connect(_on_play_pressed)
 	if quit_button:
