@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvnenct1cv0jx"]
 
 [ext_resource type="Texture2D" uid="uid://cenl2sxm7d4sh" path="res://sprites/background/box_dialog_marvin.png" id="1_4ssbf"]
-[ext_resource type="Script" path="res://scenes/dialog_box_marvin_tutorial.gd" id="2_yy5iv"]
+[ext_resource type="Script" uid="uid://6bokgc16iui0" path="res://scenes/dialog_box_marvin_tutorial.gd" id="2_yy5iv"]
 [ext_resource type="FontFile" uid="uid://c3nxvmli3envj" path="res://text/PixelOperator8-Bold.ttf" id="3_pwtsx"]
 
 [node name="tutorial_marvin" type="Node2D"]

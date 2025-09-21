@@ -1,11 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://dyd2hxrpabef2"]
 
-[ext_resource type="Script" path="res://scripts/enemy_type_basic.gd" id="1_oaejn"]
+[ext_resource type="Script" uid="uid://c5yki4mtp3ubs" path="res://scripts/enemy_type_basic.gd" id="1_oaejn"]
 [ext_resource type="Texture2D" uid="uid://dt3h3qfv6xvku" path="res://sprites/enemies/EXPLOSAO-INIMIGO-1.png" id="2_oaejn"]
 [ext_resource type="Texture2D" uid="uid://dk06v6hw3p203" path="res://sprites/enemies/INIMIGO-1.png" id="3_evxcl"]
-[ext_resource type="AudioStream" uid="uid://chdgpgctld88v" path="res://sprites/ogg_audios/ogg/explosion-8-bit-14.ogg" id="5_evxcl"]
-
 [ext_resource type="FontFile" uid="uid://cnik0owupacgs" path="res://text/monogram.ttf" id="4_oaejn"]
+[ext_resource type="AudioStream" uid="uid://chdgpgctld88v" path="res://sprites/ogg_audios/ogg/explosion-8-bit-14.ogg" id="5_evxcl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umw5f"]
 atlas = ExtResource("2_oaejn")
@@ -152,3 +151,4 @@ vertical_alignment = 1
 
 [node name="sfx_explosion" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_evxcl")
+volume_db = 10.0

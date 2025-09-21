@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0h857r3xqchk"]
+[gd_scene load_steps=11 format=3 uid="uid://b0h857r3xqchk"]
 
 [ext_resource type="Script" uid="uid://sc1voycl3aly" path="res://moulinette.gd" id="1_iqjl6"]
 [ext_resource type="Texture2D" uid="uid://drrsnnw6rxdsj" path="res://sprites/boss/boos-move.png" id="2_iqjl6"]
 [ext_resource type="Texture2D" uid="uid://dmyjlef2m5djr" path="res://sprites/boss/boss-died.png" id="2_sc3cy"]
 [ext_resource type="Texture2D" uid="uid://d3e0qgi8x1pyd" path="res://sprites/boss/boss-dano.png" id="3_j060c"]
+[ext_resource type="AudioStream" uid="uid://bnanqmjwfjl8i" path="res://sprites/audios/morte-morteee.ogg" id="5_j060c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qcoir"]
 atlas = ExtResource("2_sc3cy")
@@ -77,6 +78,10 @@ wait_time = 0.7
 
 [node name="MiniCoolDown" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="sfx_mounilette" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_j060c")
+volume_db = 10.0
 
 [connection signal="timeout" from="LifeTime" to="." method="_on_life_time_timeout"]
 [connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]

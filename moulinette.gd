@@ -10,6 +10,7 @@ var easy_enemies: Array[PackedScene] = [
 
 @onready var spawn_points: Array[Node] = $"Spawn Points".get_children()
 @onready var enemy_node: Node = $Spawns
+@onready var sfx_mounilette = $sfx_mounilette
 
 var shots_counter: int = 0
 var callables: Array[Callable] = [
@@ -81,12 +82,26 @@ func _on_mini_cool_down_timeout() -> void:
 		$MiniCoolDown.stop()
 
 
+# Sua função de timeout do LifeTime
 func _on_life_time_timeout() -> void:
+	# Chama a função de sequência de morte de forma segura, no próximo frame.
+	call_deferred("_start_death_sequence")
+
+# Sua nova função para lidar com a morte do boss
+func _start_death_sequence() -> void:
+	# Verificação de segurança para garantir que o nó ainda está na árvore
+	if not is_inside_tree():
+		return
+		
 	$CoolDown.stop()
+	
+	# Aguarda 0.5 segundos para a animação de morte
 	await get_tree().create_timer(0.5).timeout
 	$AnimatedSprite2D.play("death")
+	
 	for enemy in enemy_node.get_children():
 		enemy.die()
+	sfx_mounilette.play()
+	await get_tree().create_timer(3.0).timeout
 	defeated.emit()
-	await get_tree().create_timer(0.5).timeout
-	hide()
+	queue_free()
