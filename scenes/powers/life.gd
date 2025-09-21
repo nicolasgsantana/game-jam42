@@ -36,24 +36,29 @@ func update_visual():
 func lost_life() -> void:
 	if lifes > 0:
 		lifes -= 1
-		update_visual()
 		print("Perdeu uma vida! Restam:", lifes)
+		update_visual()  # Movi para DEPOIS do print para debug
 	else:
 		print("Game Over!")
+		# Caso já esteja em 0, chama game over diretamente
+		trigger_game_over()
 
 func trigger_game_over():
-	# Pegar referência do GameManager para obter o score
+	print("=== TRIGGER GAME OVER CHAMADO ===")
+	
+	# Pegar score do GameManager
 	var game_manager = get_node("../GameManager")
 	var final_score = game_manager.player_score
+	print("Score obtido: ", final_score)
 	
-	# Pegar referência da tela de game over
-	var game_over_screen = get_node("../GameOverScreen")
+	# Salvar no GameData (se existir)
+	if GameData:
+		GameData.set_final_score(final_score)
+		print("Score salvo no GameData")
 	
-	# Pausar o jogo
-	get_tree().paused = true
-	
-	# Mostrar tela de game over com o score
-	#game_over_screen.show_game_over(final_score)
+	# Ir para GameOver (vai funcionar agora que a cena existe!)
+	get_tree().change_scene_to_file("res://scenes/GameOverScene.tscn")
+	print("Indo para GameOver...")
 
 func recover_life() -> void:
 	if can_recover and lifes < max_lifes:
