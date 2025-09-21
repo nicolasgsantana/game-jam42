@@ -1,0 +1,155 @@
+[gd_scene load_steps=18 format=3 uid="uid://60u58ihbjmii"]
+
+[ext_resource type="Texture2D" uid="uid://b1c6qqddhqepk" path="res://sprites/boss/you-lose.png" id="1_ylwof"]
+[ext_resource type="Texture2D" uid="uid://d3e0qgi8x1pyd" path="res://sprites/boss/boss-dano.png" id="2_vqcf1"]
+[ext_resource type="Texture2D" uid="uid://dmyjlef2m5djr" path="res://sprites/boss/boss-died.png" id="3_014tp"]
+[ext_resource type="Texture2D" uid="uid://drrsnnw6rxdsj" path="res://sprites/boss/boos-move.png" id="4_2yo2b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p532"]
+atlas = ExtResource("1_ylwof")
+region = Rect2(0, 0, 1023, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qm24"]
+atlas = ExtResource("2_vqcf1")
+region = Rect2(20, 515, 497, 447)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgsnh"]
+atlas = ExtResource("2_vqcf1")
+region = Rect2(517, 68, 497, 447)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvrr0"]
+atlas = ExtResource("2_vqcf1")
+region = Rect2(20, 68, 497, 447)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k20c"]
+atlas = ExtResource("3_014tp")
+region = Rect2(494, 502, 494, 433)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtsy8"]
+atlas = ExtResource("3_014tp")
+region = Rect2(0, 502, 494, 433)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uotkj"]
+atlas = ExtResource("3_014tp")
+region = Rect2(494, 69, 494, 433)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htuwn"]
+atlas = ExtResource("3_014tp")
+region = Rect2(69, 126, 341, 334)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aub7x"]
+atlas = ExtResource("4_2yo2b")
+region = Rect2(168, 201, 352, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vq7k"]
+atlas = ExtResource("4_2yo2b")
+region = Rect2(520, 201, 352, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0cfg"]
+atlas = ExtResource("4_2yo2b")
+region = Rect2(168, 514, 352, 313)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yd8y"]
+atlas = ExtResource("4_2yo2b")
+region = Rect2(520, 514, 352, 313)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ui35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p532")
+}],
+"loop": true,
+"name": &"YOU-LOSE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qm24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgsnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvrr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qm24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgsnh")
+}],
+"loop": true,
+"name": &"boss-dano",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k20c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtsy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uotkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k20c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtsy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uotkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvrr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htuwn")
+}],
+"loop": true,
+"name": &"boss-died",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aub7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vq7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0cfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yd8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aub7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vq7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0cfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yd8y")
+}],
+"loop": true,
+"name": &"boss-move",
+"speed": 2.0
+}]
+
+[node name="Boss" type="CharacterBody2D"]
+
+[node name="Mou" type="Sprite2D" parent="."]
+
+[node name="Moulinette" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1569, 520)
+scale = Vector2(1.27324, 1.27324)
+sprite_frames = SubResource("SpriteFrames_6ui35")
+animation = &"boss-died"
+frame_progress = 0.63672
