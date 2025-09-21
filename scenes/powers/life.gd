@@ -28,7 +28,7 @@ func update_visual():
 	if lifes == 0:
 		$"duck".hide()
 		sfx_quack3.play()
-		# Chamar game over quando lifes == 0
+		await get_tree().create_timer(0.5).timeout
 		trigger_game_over()
 		
 	if can_recover:
