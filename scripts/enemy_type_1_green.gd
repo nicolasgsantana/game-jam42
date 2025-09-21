@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
 @export var speed: int = 200
+@export var difficulty: int = 1
 var is_dead: bool = false
-
-var command_list: Array = [
-	"LS", "RM -RF", "GERALT OF RIVIA"
-]
+var command: String
 
 func _ready():
 	add_to_group("enemies")
@@ -18,6 +16,14 @@ func _ready():
 	if animated_sprite and animated_sprite.sprite_frames:
 		if animated_sprite.sprite_frames.has_animation("Walk"):
 			animated_sprite.play("Walk")
+	
+	var possible_commands: Array
+	var command_dict: Dictionary = GlobalData.command_dict
+	for command in command_dict:
+		if command_dict[command] == difficulty:
+			possible_commands.append(command)
+	command = possible_commands[randi() % possible_commands.size()]
+	$Control/CommandLabel.text = command
 
 func _process(delta: float) -> void:
 	# Só se move se não estiver morto
@@ -85,3 +91,18 @@ func simple_death_effect():
 	else:
 		# Se não tiver nem sprite, remove imediatamente
 		queue_free()
+
+func word_feedback(buffer: Array) -> void:
+	var player_input: String = ""
+	for c in buffer:
+		player_input += char(c)
+	if player_input in command:
+		$Control/CorrectLabel.text = player_input
+	else:
+		$Control/CorrectLabel.text
+
+func check_command(received_command: String) -> bool:
+	if command == received_command:
+		die()
+		return true
+	return false

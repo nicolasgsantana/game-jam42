@@ -6,7 +6,7 @@ var player_score: int = 0
 var combat_area: Area2D
 
 func _ready():
-	combat_area = find_child("CombatArea", true, false)
+	combat_area = $"../CombatArea"
 
 
 func get_enemies_in_combat_area() -> Array:
@@ -18,13 +18,24 @@ func get_enemies_in_combat_area() -> Array:
 	return enemies
 
 
-func kill_enemy(enemy: Node):
-	enemy.die()
-	await get_tree().process_frame
-	if enemy.get("is_dead") == true:
-		add_score(1)
-
-
 func add_score(points: int):
 	player_score += points
 	score_label.text = "Score: " + str(player_score)
+
+
+func _on_input_handler_buffer_changed(buffer: Array) -> void:
+	var enemies: Array = get_enemies_in_combat_area()
+	for enemy in enemies:
+			if not enemy.is_dead:
+				enemy.word_feedback(buffer)
+
+
+func _on_input_handler_command_sent(command: Array, difficulty: int) -> void:
+	var enemies: Array = get_enemies_in_combat_area()
+	var player_input: String
+	for c in command:
+		player_input += char(c)
+	for enemy in enemies:
+			if not enemy.is_dead:
+				if enemy.check_command(player_input):
+					add_score(1)

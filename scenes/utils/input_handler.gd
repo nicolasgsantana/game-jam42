@@ -1,7 +1,7 @@
 extends Node
 
 signal buffer_changed(buffer: Array)
-signal command_sent(command: String, difficulty: int)
+signal command_sent(command: Array, difficulty: int)
 
 ## A buffer of previous entered key codes
 var buffer: Array = []
