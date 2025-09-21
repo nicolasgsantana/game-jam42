@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://cooprrrg3fon0" path="res://scripts/game_manager.gd" id="3_y0acb"]
 [ext_resource type="PackedScene" uid="uid://fe2x7nv7v5tp" path="res://scenes/combat_area.tscn" id="4_j4d2a"]
 [ext_resource type="Texture2D" uid="uid://bnqpoxevqsnw4" path="res://icon.svg" id="8_vkq25"]
-[ext_resource type="PackedScene" uid="uid://ba55ds5r1wrvd" path="res://player.tscn" id="10_hwp66"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="10_hwp66"]
 [ext_resource type="PackedScene" uid="uid://t3xu037ejxsq" path="res://scenes/powers/life.tscn" id="10_rssyh"]
 [ext_resource type="PackedScene" uid="uid://elblbxg2yo01" path="res://scenes/GameOverScene.tscn" id="11_hwp66"]
 [ext_resource type="AudioStream" uid="uid://b6haxgw50wve6" path="res://sprites/ogg_audios/ogg/sound_fase.ogg" id="12_2xkjh"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://x677g0l00lb3"]
 
 [ext_resource type="Texture2D" uid="uid://dt3h3qfv6xvku" path="res://sprites/enemies/EXPLOSAO-INIMIGO-1.png" id="1_0dbke"]
-[ext_resource type="Script" uid="uid://c5yki4mtp3ubs" path="res://scripts/enemy_type_basic.gd" id="1_8176h"]
+[ext_resource type="Script" path="res://scripts/enemy_type_basic.gd" id="1_8176h"]
 [ext_resource type="Texture2D" uid="uid://dk06v6hw3p203" path="res://sprites/enemies/INIMIGO-1.png" id="2_ih416"]
-[ext_resource type="FontFile" uid="uid://bi827si2beog3" path="res://text/PixelOperator8.ttf" id="5_dbwo6"]
+[ext_resource type="FontFile" uid="uid://cnik0owupacgs" path="res://text/monogram.ttf" id="4_r2ftj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yecoa"]
 atlas = ExtResource("1_0dbke")
@@ -111,7 +111,7 @@ offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("5_dbwo6")
+theme_override_fonts/font = ExtResource("4_r2ftj")
 vertical_alignment = 1
 
 [node name="CorrectLabel" type="Label" parent="Control"]
@@ -128,5 +128,5 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0, 1, 0, 1)
-theme_override_fonts/font = ExtResource("5_dbwo6")
+theme_override_fonts/font = ExtResource("4_r2ftj")
 vertical_alignment = 1
