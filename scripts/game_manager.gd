@@ -2,11 +2,13 @@
 extends Node
 
 @export var score_label: Label
-@onready var sfx_main = $"../sfx_main"@export var boss_treshhold: int = 1
+@onready var sfx_main = $"../sfx_main"
+@export var boss_treshhold: int = 1
 
 var player_score: int = 0
 var combat_area: Area2D
 @onready var timer = $Timer
+var is_boss_called: bool = false
 
 func _ready():
 	combat_area = $"../CombatArea"
@@ -24,8 +26,10 @@ func get_enemies_in_combat_area() -> Array:
 func add_score(points: int):
 	player_score += points
 	score_label.text = "Score: " + str(player_score)
-	if player_score >= boss_treshhold:
+	if player_score >= boss_treshhold and not is_boss_called:
+		is_boss_called = true
 		$"../EnemySpawnerBasic".stop_timer()
+		$"../Moulinette".start_boss()
 
 
 func _on_input_handler_buffer_changed(buffer: Array) -> void:
@@ -49,3 +53,7 @@ func _on_input_handler_command_sent(command: Array, difficulty: int) -> void:
 func _on_player_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
 		$"../Life".lost_life()
+
+
+func _on_moulinette_defeated() -> void:
+	pass

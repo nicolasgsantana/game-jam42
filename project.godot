@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Deu a Louca na Moulinette"
-run/main_scene="uid://fo34y7jir6of"
+run/main_scene="uid://0l2aufap7a17"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameData="*res://GameData.gd"
 GlobalData="*res://scripts/global_data.gd"
+GameData="*res://GameData.gd"
 
 [display]
 
