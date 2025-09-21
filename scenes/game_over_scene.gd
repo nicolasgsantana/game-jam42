@@ -16,7 +16,7 @@ func _ready():
 
 func _on_play_pressed():
 	print("Iniciando o jogo...")
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/main.tscn")
 
 func _on_quit_pressed():
 	print("Saindo do jogo...")

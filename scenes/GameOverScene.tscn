@@ -71,6 +71,7 @@ autoplay = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 499.0
 offset_top = 374.0
 offset_right = 2411.0

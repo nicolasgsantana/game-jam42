@@ -37,12 +37,14 @@ quit_button = NodePath("CenterContainer/VBoxContainer/QuitButton")
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
 texture_filter = 1
+layout_mode = 0
 offset_right = 1929.0
 offset_bottom = 1073.0
 texture = ExtResource("2_5ygf6")
 
 [node name="TextEdit" type="TextEdit" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 804.0
 offset_top = 827.0
 offset_right = 1100.0
@@ -71,6 +73,7 @@ texture = ExtResource("6_5ygf6")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 509.0
 offset_top = 627.0
 offset_right = 2421.0
