@@ -5,6 +5,9 @@ var lifes: int = 3
 var max_lifes: int = 3
 var can_recover: bool = true
 var bar_life: AnimatedSprite2D
+@onready var sfx_quack = $sfx_quack
+@onready var sfx_quack2 = $sfx_quack2
+@onready var sfx_quack3 = $sfx_quack3
 
 func _ready() -> void:
 	print("Vidas iniciais:", lifes)
@@ -18,10 +21,13 @@ func update_visual():
 	if lifes == 2:
 		$"duck2".show()
 		$"duck3".hide()
+		sfx_quack.play()
 	if lifes == 1:
 		$"duck2".hide()
+		sfx_quack2.play()
 	if lifes == 0:
 		$"duck".hide()
+		sfx_quack3.play()
 		# Chamar game over quando lifes == 0
 		trigger_game_over()
 		

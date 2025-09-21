@@ -25,5 +25,8 @@ func _ready() -> void:
 		scroll_amount,
 		credits_time
 	)
-	
 	tween.play()
+
+func _input(event):
+	if event.is_action_pressed("skip_credits"):
+		get_tree().change_scene_to_file("res://scenes/levels/main.tscn")

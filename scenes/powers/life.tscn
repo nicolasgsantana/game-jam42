@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://t3xu037ejxsq"]
+[gd_scene load_steps=6 format=3 uid="uid://t3xu037ejxsq"]
 
 [ext_resource type="Script" uid="uid://cbeqbe84hjyqs" path="res://scenes/powers/life.gd" id="1_0c4ir"]
 [ext_resource type="Texture2D" uid="uid://2maijlvy82lf" path="res://sprites/image.png" id="2_ejp8w"]
+[ext_resource type="AudioStream" uid="uid://8ub0li36shuk" path="res://sprites/ogg_audios/ogg/quack-1.ogg" id="3_omns5"]
+[ext_resource type="AudioStream" uid="uid://bn6uxuic1n8qn" path="res://sprites/ogg_audios/ogg/quack-2.ogg" id="4_t1oth"]
+[ext_resource type="AudioStream" uid="uid://vqeeuvr3nfog" path="res://sprites/ogg_audios/ogg/quack-3.ogg" id="5_uv5p6"]
 
 [node name="Life" type="Node2D"]
 script = ExtResource("1_0c4ir")
@@ -42,5 +45,14 @@ visible = false
 position = Vector2(1636.5, 752)
 region_enabled = true
 region_rect = Rect2(0, 64, 63, 64)
+
+[node name="sfx_quack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_omns5")
+
+[node name="sfx_quack2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_t1oth")
+
+[node name="sfx_quack3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_uv5p6")
 
 [connection signal="timeout" from="Node/RecoverTime" to="Node" method="_on_recover_time_timeout"]
