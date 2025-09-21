@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctbqhrvem2mcu"]
+
+[ext_resource type="Texture2D" uid="uid://ll4m6v6njcmt" path="res://sprites/background/Dynamic Space Background FREE/Nebula Blue.png" id="1_fglrh"]
+[ext_resource type="Texture2D" uid="uid://cenl2sxm7d4sh" path="res://sprites/background/box_dialog_marvin.png" id="2_e81kg"]
+[ext_resource type="Texture2D" uid="uid://dp14j41clan0h" path="res://sprites/background/Dynamic Space Background FREE/Stars Small_1.png" id="2_f05b4"]
+[ext_resource type="Script" uid="uid://di6pk8omgqiv0" path="res://scenes/tutorial_marvin/tutorial1.gd" id="3_6d2ko"]
+[ext_resource type="Texture2D" uid="uid://b8kc07ux4berr" path="res://sprites/background/Dynamic Space Background FREE/Stars Small_2.png" id="3_7mknv"]
+[ext_resource type="FontFile" uid="uid://c3nxvmli3envj" path="res://text/PixelOperator8-Bold.ttf" id="3_klydo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfhxa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f05b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7mknv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Tutorial1" type="Node2D"]
+
+[node name="NebulaBlue" type="Sprite2D" parent="."]
+modulate = Color(0.32549, 0.32549, 0.32549, 1)
+position = Vector2(946, 435)
+scale = Vector2(0.484131, 0.484131)
+texture = ExtResource("1_fglrh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NebulaBlue"]
+modulate = Color(0.589096, 0.589096, 0.589096, 1)
+position = Vector2(-1954.02, -898.517)
+scale = Vector2(2.06556, 2.06556)
+sprite_frames = SubResource("SpriteFrames_yfhxa")
+autoplay = "default"
+frame_progress = 0.13525
+speed_scale = 0.5
+
+[node name="BoxDialogMarvin" type="Sprite2D" parent="."]
+position = Vector2(965, 688)
+scale = Vector2(0.325503, 0.325503)
+texture = ExtResource("2_e81kg")
+
+[node name="text" type="RichTextLabel" parent="."]
+offset_left = 745.0
+offset_top = 595.0
+offset_right = 1408.0
+offset_bottom = 786.0
+theme_override_fonts/normal_font = ExtResource("3_klydo")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+vertical_alignment = 1
+script = ExtResource("3_6d2ko")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="text"]
+autoplay = true
