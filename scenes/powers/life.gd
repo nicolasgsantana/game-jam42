@@ -1,3 +1,4 @@
+# life.gd
 extends Node
 
 var lifes: int = 3
@@ -8,9 +9,8 @@ var bar_life: AnimatedSprite2D
 func _ready() -> void:
 	print("Vidas iniciais:", lifes)
 	bar_life = get_node("../Player/barlife")
-	
-func _update_visual():
-	#$"../Vidas".text = str("Vidas: ",lifes)
+
+func update_visual():
 	if lifes == 3:
 		$"duck".show()
 		$"duck2".show()
@@ -22,6 +22,9 @@ func _update_visual():
 		$"duck2".hide()
 	if lifes == 0:
 		$"duck".hide()
+		# Chamar game over quando lifes == 0
+		trigger_game_over()
+		
 	if can_recover:
 		$"PowerLife/power_life_on".show()
 		$"PowerLife/power_life_off".hide()
@@ -31,14 +34,26 @@ func _update_visual():
 	print(can_recover)
 
 func lost_life() -> void:
-	
 	if lifes > 0:
 		lifes -= 1
-		#play_hit_effect()
-		_update_visual()
+		update_visual()
 		print("Perdeu uma vida! Restam:", lifes)
 	else:
 		print("Game Over!")
+
+func trigger_game_over():
+	# Pegar referência do GameManager para obter o score
+	var game_manager = get_node("../GameManager")
+	var final_score = game_manager.player_score
+	
+	# Pegar referência da tela de game over
+	var game_over_screen = get_node("../GameOverScreen")
+	
+	# Pausar o jogo
+	get_tree().paused = true
+	
+	# Mostrar tela de game over com o score
+	#game_over_screen.show_game_over(final_score)
 
 func recover_life() -> void:
 	if can_recover and lifes < max_lifes:
@@ -53,7 +68,6 @@ func play_hit_effect():
 	bar_life.play("hit")
 	print("🔥 Tocando animação 'hit'!")
 	
-	# Volta para stand após 0.5 segundos
 	await get_tree().create_timer(0.5).timeout
 	
 	bar_life.play("stand")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://elblbxg2yo01"]
+
+[ext_resource type="Texture2D" uid="uid://qwxoku60ck3i" path="res://sprites/GameOver/game_over.png" id="1_y26ei"]
+[ext_resource type="Script" uid="uid://8ylrn2tuuhe4" path="res://scripts/game_over.gd" id="1_yxx3c"]
+
+[node name="GameOverScreen" type="Node2D"]
+script = ExtResource("1_yxx3c")
+
+[node name="GameOverBackground" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1089.0
+texture = ExtResource("1_y26ei")
