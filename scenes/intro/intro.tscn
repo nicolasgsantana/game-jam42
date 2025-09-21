@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bydotridt6m7x"]
+[gd_scene load_steps=6 format=3 uid="uid://bydotridt6m7x"]
 
 [ext_resource type="Script" uid="uid://bujrsydkb5amc" path="res://scenes/intro/intro.gd" id="1_exgwc"]
 [ext_resource type="FontFile" uid="uid://bi827si2beog3" path="res://text/PixelOperator8.ttf" id="1_iatiw"]
+[ext_resource type="AudioStream" uid="uid://mrevi7s8tpwb" path="res://sounds/Star-Wars-Theme-_2019-Remaster_-_8-Bit-Tribute-to-John-Williams-_-Star-Wars_-8-Bit-Universe-8-Bit-Un.wav" id="2_ir5dn"]
 [ext_resource type="FontFile" uid="uid://c3nxvmli3envj" path="res://text/PixelOperator8-Bold.ttf" id="2_teox7"]
 [ext_resource type="Texture2D" uid="uid://f75stk37awdj" path="res://sprites/background/space_background.jpg" id="8_exgwc"]
 
@@ -118,3 +119,7 @@ text = "
 "
 fit_content = true
 vertical_alignment = 1
+
+[node name="music_intro" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ir5dn")
+autoplay = true
