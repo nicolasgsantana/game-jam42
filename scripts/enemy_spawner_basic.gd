@@ -136,3 +136,7 @@ func get_current_phase_name() -> String:
 		return "MEDIUM"
 	else:
 		return "HARD"
+
+
+func stop_timer() -> void:
+	$Timer.stop()

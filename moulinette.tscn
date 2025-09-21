@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0h857r3xqchk"]
+
+[ext_resource type="Texture2D" uid="uid://bnqpoxevqsnw4" path="res://icon.svg" id="1_4imyg"]
+[ext_resource type="Script" uid="uid://sc1voycl3aly" path="res://moulinette.gd" id="1_iqjl6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqjl6"]
+atlas = ExtResource("1_4imyg")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um1v4"]
+atlas = ExtResource("1_4imyg")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc3cy"]
+atlas = ExtResource("1_4imyg")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j060c"]
+atlas = ExtResource("1_4imyg")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcoir"]
+atlas = ExtResource("1_4imyg")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwtrf"]
+atlas = ExtResource("1_4imyg")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y73n3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqjl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um1v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc3cy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j060c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcoir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwtrf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Moulinette" type="Node2D"]
+script = ExtResource("1_iqjl6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y73n3")
+frame = 4
+frame_progress = 0.911445
+
+[node name="Spawn Points" type="Node2D" parent="."]
+
+[node name="MarkerTop" type="Marker2D" parent="Spawn Points"]
+position = Vector2(-100, -200)
+
+[node name="MarkerMid" type="Marker2D" parent="Spawn Points"]
+position = Vector2(-100, 0)
+
+[node name="MarkerDown" type="Marker2D" parent="Spawn Points"]
+position = Vector2(-100, 200)
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="LifeTime" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="CoolDown" type="Timer" parent="."]
+wait_time = 0.9
+autostart = true
+
+[node name="MiniCoolDown" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="LifeTime" to="." method="_on_life_time_timeout"]
+[connection signal="timeout" from="CoolDown" to="." method="_on_cool_down_timeout"]
+[connection signal="timeout" from="MiniCoolDown" to="." method="_on_mini_cool_down_timeout"]
