@@ -3,7 +3,7 @@ extends Node
 
 @export var score_label: Label
 @onready var sfx_main = $"../sfx_main"
-@export var boss_treshhold: int = 40
+@export var boss_treshhold: int = 50
 
 var player_score: int = 0
 var combat_area: Area2D
@@ -57,4 +57,4 @@ func _on_player_body_entered(body: Node2D) -> void:
 
 
 func _on_moulinette_defeated() -> void:
-	pass
+	get_tree().change_scene_to_file("res://scenes/Victory.tscn")

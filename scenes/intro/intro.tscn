@@ -132,3 +132,9 @@ vertical_alignment = 1
 [node name="music_intro" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_ir5dn")
 autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 25.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

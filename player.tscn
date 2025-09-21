@@ -58,6 +58,7 @@ size = Vector2(9, 548)
 [node name="Player" type="Area2D"]
 
 [node name="barlife" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(48.625, -43.6614)
 scale = Vector2(0.581055, 0.524698)
 sprite_frames = SubResource("SpriteFrames_hqtel")

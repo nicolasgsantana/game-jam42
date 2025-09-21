@@ -1,10 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://rmnf6r1qli6d"]
 
-[ext_resource type="Script" path="res://scripts/enemy_type_basic.gd" id="1_odkgk"]
+[ext_resource type="Script" uid="uid://c5yki4mtp3ubs" path="res://scripts/enemy_type_basic.gd" id="1_odkgk"]
 [ext_resource type="Texture2D" uid="uid://b5qlryswhfncm" path="res://sprites/enemies/EXPLOSAO-INIMIGO-3.png" id="1_u0ukd"]
 [ext_resource type="Texture2D" uid="uid://cn8gwpg1t5h65" path="res://sprites/enemies/INIMIGO-3.png" id="2_5kfwb"]
-[ext_resource type="AudioStream" uid="uid://dp0u5uuerttot" path="res://sprites/ogg_audios/ogg/explosion-8-bit-6.ogg" id="5_21ybl"]
-
+[ext_resource type="AudioStream" uid="uid://dx310ddm2fltq" path="res://sprites/audios/explosion-8-bit-14.ogg" id="5_3mpbo"]
 [ext_resource type="FontFile" uid="uid://cnik0owupacgs" path="res://text/monogram.ttf" id="5_21ybl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4hoev"]
@@ -116,6 +115,8 @@ animations = [{
 [node name="EnemyTypeHardYellow" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_odkgk")
+speed = 100
+difficulty = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -170,4 +171,5 @@ theme_override_font_sizes/font_size = 32
 vertical_alignment = 1
 
 [node name="sfx_explosion" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_21ybl")
+stream = ExtResource("5_3mpbo")
+volume_db = 10.0

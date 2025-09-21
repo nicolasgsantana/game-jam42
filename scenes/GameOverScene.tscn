@@ -1,16 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://elblbxg2yo01"]
+[gd_scene load_steps=10 format=3 uid="uid://elblbxg2yo01"]
 
+[ext_resource type="Script" uid="uid://bpltfutbw7e3v" path="res://scenes/game_over_scene.gd" id="1_376d8"]
 [ext_resource type="Texture2D" uid="uid://qwxoku60ck3i" path="res://sprites/GameOver/game_over.png" id="1_y26ei"]
-[ext_resource type="Script" uid="uid://8ylrn2tuuhe4" path="res://scripts/game_over.gd" id="1_yxx3c"]
+[ext_resource type="Texture2D" uid="uid://bo67tn5tk2ft0" path="res://sprites/GameOver/derrota.png" id="3_1ubts"]
+[ext_resource type="Texture2D" uid="uid://ck6nojq12u352" path="res://sprites/GameOver/derrota-label.png" id="4_y2xdt"]
+[ext_resource type="Texture2D" uid="uid://t0vy1ve27bs0" path="res://sprites/menu/base_menu.png" id="5_7qguh"]
+[ext_resource type="AudioStream" uid="uid://bodoippw67jdk" path="res://sprites/audios/game-over.mp3" id="5_y2xdt"]
+[ext_resource type="Texture2D" uid="uid://bxhfachbn1088" path="res://sprites/menu/button_play.png" id="6_376d8"]
+[ext_resource type="Texture2D" uid="uid://dy7gr4861yfj1" path="res://sprites/menu/button_quit.png" id="7_7qguh"]
 
-[node name="Control" type="Control"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_vm1uj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_y2xdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1ubts")
+}],
+"loop": true,
+"name": &"Derrota",
+"speed": 3.0
+}]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("play_button", "quit_button")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_yxx3c")
+script = ExtResource("1_376d8")
+play_button = NodePath("CenterContainer/VBoxContainer/PlayButton")
+quit_button = NodePath("CenterContainer/VBoxContainer/QuitButton")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_right = 1929.0
@@ -20,9 +43,50 @@ texture = ExtResource("1_y26ei")
 [node name="TextEdit" type="TextEdit" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 804.0
-offset_top = 827.0
-offset_right = 1100.0
-offset_bottom = 869.0
+offset_left = 794.0
+offset_top = 498.0
+offset_right = 1090.0
+offset_bottom = 540.0
 scale = Vector2(1.1, 1.1)
 text = "Pressione ESC para voltar ao menu"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(950.5, 232.5)
+scale = Vector2(1.87402, 1.87402)
+sprite_frames = SubResource("SpriteFrames_vm1uj")
+animation = &"Derrota"
+autoplay = "Derrota"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(956, 644)
+scale = Vector2(0.355444, 0.59316)
+texture = ExtResource("5_7qguh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-10, -329)
+stream = ExtResource("5_y2xdt")
+volume_db = 10.0
+autoplay = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+texture_filter = 1
+offset_left = 499.0
+offset_top = 374.0
+offset_right = 2411.0
+offset_bottom = 1450.0
+scale = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+icon = ExtResource("6_376d8")
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+icon = ExtResource("7_7qguh")

@@ -1,21 +1,56 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0o15m0gcrvwr"]
+[gd_scene load_steps=17 format=3 uid="uid://c0o15m0gcrvwr"]
 
 [ext_resource type="PackedScene" uid="uid://dh7wnq0py58i0" path="res://scenes/utils/input_handler.tscn" id="1_72ix8"]
 [ext_resource type="Texture2D" uid="uid://iq7p32wywouq" path="res://sprites/MonoCinza.png" id="1_ubwgw"]
+[ext_resource type="Texture2D" uid="uid://cndv05rcw2nvg" path="res://sprites/main/background.png" id="1_y56qp"]
 [ext_resource type="PackedScene" uid="uid://difxhgx5j86wm" path="res://scenes/enemy_spawner_basic.tscn" id="2_2vj2h"]
+[ext_resource type="Texture2D" uid="uid://chfopsbbcnoop" path="res://sprites/main/base hud.png" id="2_sv52t"]
 [ext_resource type="PackedScene" uid="uid://bvcx5saan0jut" path="res://scenes/keyboard.tscn" id="2_y0acb"]
+[ext_resource type="Texture2D" uid="uid://dl4ny1scxunef" path="res://sprites/main/keyboard_shadow.png" id="3_7exfm"]
 [ext_resource type="PackedScene" uid="uid://b8df74ncyro81" path="res://scenes/command_line.tscn" id="3_j4d2a"]
 [ext_resource type="Script" uid="uid://cooprrrg3fon0" path="res://scripts/game_manager.gd" id="3_y0acb"]
 [ext_resource type="PackedScene" uid="uid://b0h857r3xqchk" path="res://moulinette.tscn" id="4_hwp66"]
 [ext_resource type="PackedScene" uid="uid://fe2x7nv7v5tp" path="res://scenes/combat_area.tscn" id="4_j4d2a"]
-[ext_resource type="Texture2D" uid="uid://bnqpoxevqsnw4" path="res://icon.svg" id="8_vkq25"]
-[ext_resource type="PackedScene" path="res://player.tscn" id="10_hwp66"]
+[ext_resource type="Texture2D" uid="uid://bdgih8a5fc5ew" path="res://sprites/main/life base hud.png" id="4_qgoyv"]
+[ext_resource type="FontFile" uid="uid://cnik0owupacgs" path="res://text/monogram.ttf" id="6_sv52t"]
+[ext_resource type="PackedScene" uid="uid://ba55ds5r1wrvd" path="res://player.tscn" id="10_hwp66"]
 [ext_resource type="PackedScene" uid="uid://t3xu037ejxsq" path="res://scenes/powers/life.tscn" id="10_rssyh"]
 [ext_resource type="AudioStream" uid="uid://b6haxgw50wve6" path="res://sprites/ogg_audios/ogg/sound_fase.ogg" id="12_2xkjh"]
 
 [node name="Main" type="Node2D"]
 
+[node name="Background2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(956.31, 551.5)
+scale = Vector2(1.21816, 1.34552)
+texture = ExtResource("1_y56qp")
+
+[node name="BaseHud" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(960.5, 539)
+scale = Vector2(1.20338, 1.27123)
+texture = ExtResource("2_sv52t")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(891, 635)
+scale = Vector2(1.08198, 1)
+texture = ExtResource("3_7exfm")
+
+[node name="Shadow2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1805.25, 638)
+scale = Vector2(1.42647, 1)
+texture = ExtResource("3_7exfm")
+
+[node name="BaseLife" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(997, 766)
+scale = Vector2(1.17647, 0.360849)
+texture = ExtResource("4_qgoyv")
+
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 offset_right = 1917.0
 offset_bottom = 1024.0
@@ -23,12 +58,15 @@ texture = ExtResource("1_ubwgw")
 
 [node name="ScoreLabel" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="ScoreLabel"]
-offset_left = 200.0
-offset_top = 77.0
-offset_right = 332.0
-offset_bottom = 167.0
+[node name="Score" type="Label" parent="ScoreLabel"]
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 196.0
+offset_bottom = 122.0
 scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0.945098, 1, 0, 1)
+theme_override_fonts/font = ExtResource("6_sv52t")
+theme_override_font_sizes/font_size = 32
 text = "Score: 0
 "
 metadata/_edit_use_anchors_ = true
@@ -128,27 +166,22 @@ offset_bottom = 826.0
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("score_label")]
 script = ExtResource("3_y0acb")
-score_label = NodePath("../ScoreLabel/Label")
+score_label = NodePath("../ScoreLabel/Score")
 
 [node name="CombatArea" parent="." instance=ExtResource("4_j4d2a")]
 visible = false
 
 [node name="Keyboard" parent="." instance=ExtResource("2_y0acb")]
-position = Vector2(900, 801)
+position = Vector2(121, 843)
 scale = Vector2(3, 3)
 
 [node name="CommandLine" parent="." instance=ExtResource("3_j4d2a")]
-position = Vector2(150, 799)
-scale = Vector2(1.5, 1.5)
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1847, 954)
-scale = Vector2(0.816407, 0.722656)
-texture = ExtResource("8_vkq25")
+position = Vector2(729, 772)
+scale = Vector2(2, 2)
 
 [node name="Life" parent="." instance=ExtResource("10_rssyh")]
-position = Vector2(99, 685)
-scale = Vector2(2.5, 2.5)
+position = Vector2(1588, 812)
+scale = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("10_hwp66")]
 position = Vector2(253, 583)
@@ -156,7 +189,8 @@ scale = Vector2(5, 5)
 
 [node name="sfx_main" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_2xkjh")
-volume_db = -5.0
+volume_db = 10.0
+autoplay = true
 
 [node name="Moulinette" parent="." instance=ExtResource("4_hwp66")]
 visible = false
