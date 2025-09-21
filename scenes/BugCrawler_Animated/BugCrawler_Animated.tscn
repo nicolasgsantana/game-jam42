@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://21rxxu28cs7c"]
+
+[ext_resource type="PackedScene" uid="uid://jc6k2oksl7yr" path="res://bug_crawler_easy.tscn" id="1_tfo61"]
+[ext_resource type="PackedScene" uid="uid://bedede1ldde5y" path="res://bug_crawler_medium.tscn" id="2_0mwm5"]
+[ext_resource type="PackedScene" uid="uid://c54xjt80ephhi" path="res://bug_crawler_hard.tscn" id="3_bc85p"]
+
+[node name="KinematicBody2D" type="Node2D"]
+
+[node name="BugCrawlerEasy" parent="." instance=ExtResource("1_tfo61")]
+position = Vector2(-103, 0)
+
+[node name="BugCrawlerMedium" parent="." instance=ExtResource("2_0mwm5")]
+position = Vector2(-15, 14)
+
+[node name="BugCrawlerHard" parent="." instance=ExtResource("3_bc85p")]
+position = Vector2(-80, 40)
