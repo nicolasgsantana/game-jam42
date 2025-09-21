@@ -23,8 +23,8 @@ func _process(delta: float) -> void:
 	# Só se move se não estiver morto
 	if not is_dead:
 		position += Vector2.LEFT * speed * delta
-	if position.x < -100:
-		queue_free()
+	#if position.x < -100:
+		#queue_free()
 
 func die():
 	is_dead = true
