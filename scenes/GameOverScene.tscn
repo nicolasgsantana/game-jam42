@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://elblbxg2yo01"]
+
+[ext_resource type="Texture2D" uid="uid://qwxoku60ck3i" path="res://sprites/GameOver/game_over.png" id="1_y26ei"]
+[ext_resource type="Script" uid="uid://8ylrn2tuuhe4" path="res://scripts/game_over.gd" id="1_yxx3c"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yxx3c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1929.0
+offset_bottom = 1073.0
+texture = ExtResource("1_y26ei")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 804.0
+offset_top = 827.0
+offset_right = 1100.0
+offset_bottom = 869.0
+scale = Vector2(1.1, 1.1)
+text = "Pressione ESC para voltar ao menu"

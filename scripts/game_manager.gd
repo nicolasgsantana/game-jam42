@@ -1,3 +1,4 @@
+#game_manager.gd
 extends Node
 
 @export var score_label: Label
