@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://bydotridt6m7x"]
+
+[ext_resource type="Script" uid="uid://bujrsydkb5amc" path="res://scenes/intro/intro.gd" id="1_exgwc"]
+[ext_resource type="FontFile" uid="uid://bi827si2beog3" path="res://text/PixelOperator8.ttf" id="1_iatiw"]
+[ext_resource type="AudioStream" uid="uid://mrevi7s8tpwb" path="res://sounds/Star-Wars-Theme-_2019-Remaster_-_8-Bit-Tribute-to-John-Williams-_-Star-Wars_-8-Bit-Universe-8-Bit-Un.wav" id="2_ir5dn"]
+[ext_resource type="FontFile" uid="uid://c3nxvmli3envj" path="res://text/PixelOperator8-Bold.ttf" id="2_teox7"]
+[ext_resource type="Texture2D" uid="uid://f75stk37awdj" path="res://sprites/background/space_background.jpg" id="8_exgwc"]
+
+[node name="intro" type="ScrollContainer" node_paths=PackedStringArray("text_node")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_exgwc")
+text_node = NodePath("MarginContainer/RichTextLabel")
+credits_time = 50.0
+
+[node name="SpaceBackground" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(992, 558)
+scale = Vector2(0.361096, 0.361096)
+texture = ExtResource("8_exgwc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.964706, 0.827451, 0.32549, 1)
+theme_override_fonts/normal_font = ExtResource("1_iatiw")
+theme_override_fonts/bold_font = ExtResource("2_teox7")
+theme_override_font_sizes/normal_font_size = 44
+theme_override_font_sizes/bold_font_size = 44
+bbcode_enabled = true
+text = "
+[center]Episódio I[/center]
+
+
+[center]A revolta da Moulinette[/center]
+
+
+
+				Em uma galáxia não muito distante,
+
+				os alunos... bem,
+
+				eles excessivamente usaram IAs
+
+				para submeter seus projetos.
+
+				E a Moulinette não gostou nem um pouco.
+
+
+				Agora, monstros da Moulinette invadem
+				
+				o campus, sabotando tudo.
+
+				Cabe a você, jovem estudante, 
+
+				digitar os comandos corretos
+
+				e derrotar os minions da
+
+				IA furiosa.
+
+				Ao seu lado, Marvin,
+
+				o robô depressivo mais inteligente e 
+
+				pessimista da galáxia,
+
+				irá te ajudar a derrotar os monstros e, 
+
+				quem sabe, sobreviver à avaliação.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+fit_content = true
+vertical_alignment = 1
+
+[node name="music_intro" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ir5dn")
+autoplay = true

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://sdakv8fuvx10"]
+
+[ext_resource type="Texture2D" uid="uid://cenl2sxm7d4sh" path="res://sprites/background/box_dialog_marvin.png" id="1_4ssbf"]
+[ext_resource type="Script" uid="uid://6bokgc16iui0" path="res://scenes/dialog_box_marvin_tutorial.gd" id="2_yy5iv"]
+[ext_resource type="FontFile" uid="uid://c3nxvmli3envj" path="res://text/PixelOperator8-Bold.ttf" id="3_pwtsx"]
+
+[node name="tutorial_marvin" type="Node2D"]
+
+[node name="dialog_box_marvin_tutorial" type="NinePatchRect" parent="."]
+offset_left = 591.0
+offset_top = 768.0
+offset_right = 1303.0
+offset_bottom = 980.0
+texture = ExtResource("1_4ssbf")
+script = ExtResource("2_yy5iv")
+
+[node name="text" type="RichTextLabel" parent="dialog_box_marvin_tutorial"]
+z_index = 1
+layout_mode = 0
+offset_left = 216.0
+offset_top = 35.0
+offset_right = 667.0
+offset_bottom = 175.0
+theme_override_fonts/normal_font = ExtResource("3_pwtsx")
+bbcode_enabled = true
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="dialog_box_marvin_tutorial"]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="dialog_box_marvin_tutorial/Timer" to="dialog_box_marvin_tutorial" method="_on_timer_timeout"]
