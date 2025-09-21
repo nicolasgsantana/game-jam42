@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://rtp3mieiphql"]
+
+[ext_resource type="Texture2D" uid="uid://78jgi7vy5e4k" path="res://sprites/astrnalt.png" id="1_h2jo3"]
+[ext_resource type="Texture2D" uid="uid://bu6iasax4vfc6" path="res://sprites/ligth_bar.png" id="2_juog6"]
+
+[sub_resource type="GDScript" id="GDScript_h2jo3"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ett0l"]
+atlas = ExtResource("2_juog6")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jynol"]
+atlas = ExtResource("2_juog6")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okaja"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ett0l")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jynol")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g5qx"]
+atlas = ExtResource("1_h2jo3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpvbn"]
+atlas = ExtResource("1_h2jo3")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbo07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g5qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpvbn")
+}],
+"loop": true,
+"name": &"Astronaut",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctqxc"]
+size = Vector2(9, 548)
+
+[node name="Astronault" type="Node2D"]
+script = SubResource("GDScript_h2jo3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="BarLife" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(48.625, -43.6614)
+scale = Vector2(0.581055, 0.524698)
+sprite_frames = SubResource("SpriteFrames_okaja")
+animation = &"stand"
+autoplay = "stand"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hbo07")
+animation = &"Astronaut"
+autoplay = "Astronaut"
+frame_progress = 0.406595
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(42.5, 108)
+shape = SubResource("RectangleShape2D_ctqxc")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

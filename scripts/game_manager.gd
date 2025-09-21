@@ -39,3 +39,8 @@ func _on_input_handler_command_sent(command: Array, difficulty: int) -> void:
 			if not enemy.is_dead:
 				if enemy.check_command(player_input):
 					add_score(1)
+
+
+func _on_player_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemies"):
+		$"../Life".lost_life()

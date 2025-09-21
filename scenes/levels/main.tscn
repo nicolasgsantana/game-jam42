@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0o15m0gcrvwr"]
+[gd_scene load_steps=11 format=3 uid="uid://c0o15m0gcrvwr"]
 
 [ext_resource type="PackedScene" uid="uid://dh7wnq0py58i0" path="res://scenes/utils/input_handler.tscn" id="1_72ix8"]
 [ext_resource type="Texture2D" uid="uid://iq7p32wywouq" path="res://sprites/MonoCinza.png" id="1_ubwgw"]
@@ -8,16 +8,15 @@
 [ext_resource type="Script" uid="uid://cooprrrg3fon0" path="res://scripts/game_manager.gd" id="3_y0acb"]
 [ext_resource type="PackedScene" uid="uid://fe2x7nv7v5tp" path="res://scenes/combat_area.tscn" id="4_j4d2a"]
 [ext_resource type="Texture2D" uid="uid://bnqpoxevqsnw4" path="res://icon.svg" id="8_vkq25"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6bv0"]
-size = Vector2(47.5, 375)
+[ext_resource type="PackedScene" uid="uid://ba55ds5r1wrvd" path="res://player.tscn" id="10_hwp66"]
+[ext_resource type="PackedScene" uid="uid://t3xu037ejxsq" path="res://scenes/powers/life.tscn" id="10_rssyh"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
 offset_right = 1917.0
-offset_bottom = 1066.0
+offset_bottom = 1024.0
 texture = ExtResource("1_ubwgw")
 
 [node name="ScoreLabel" type="CanvasLayer" parent="."]
@@ -131,25 +130,27 @@ score_label = NodePath("../ScoreLabel/Label")
 visible = false
 
 [node name="Keyboard" parent="." instance=ExtResource("2_y0acb")]
-position = Vector2(667, 828)
-scale = Vector2(4, 4)
+position = Vector2(900, 801)
+scale = Vector2(3, 3)
 
 [node name="CommandLine" parent="." instance=ExtResource("3_j4d2a")]
-position = Vector2(646, 671)
+position = Vector2(150, 799)
 scale = Vector2(1.5, 1.5)
 
-[node name="DamageArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-position = Vector2(488, 351)
-shape = SubResource("RectangleShape2D_b6bv0")
-debug_color = Color(4.21144e-08, 0.091236, 0.113562, 0.42)
-
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1847, 1001)
+position = Vector2(1847, 954)
 scale = Vector2(0.816407, 0.722656)
 texture = ExtResource("8_vkq25")
+
+[node name="Life" parent="." instance=ExtResource("10_rssyh")]
+position = Vector2(99, 685)
+scale = Vector2(2.5, 2.5)
+
+[node name="Player" parent="." instance=ExtResource("10_hwp66")]
+position = Vector2(253, 583)
+scale = Vector2(5, 5)
 
 [connection signal="buffer_changed" from="InputHandler" to="GameManager" method="_on_input_handler_buffer_changed"]
 [connection signal="buffer_changed" from="InputHandler" to="CommandLine" method="_on_input_handler_buffer_changed"]
 [connection signal="command_sent" from="InputHandler" to="GameManager" method="_on_input_handler_command_sent"]
+[connection signal="body_entered" from="Player" to="GameManager" method="_on_player_body_entered"]

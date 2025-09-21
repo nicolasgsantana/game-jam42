@@ -1,633 +1,642 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvcx5saan0jut"]
+[gd_scene load_steps=4 format=3 uid="uid://bvcx5saan0jut"]
 
 [ext_resource type="Texture2D" uid="uid://84nkvdd6qp7e" path="res://sprites/Keyboard Black.png" id="1_attx4"]
 [ext_resource type="Script" uid="uid://cbaqsophh8gxr" path="res://scenes/keyboard.gd" id="1_kjofl"]
+[ext_resource type="Texture2D" uid="uid://88axes3onra5" path="res://sprites/keyboard_base.png" id="2_a8m4y"]
 
 [node name="Keyboard" type="Node2D"]
 script = ExtResource("1_kjofl")
 
-[node name="KeyA" type="Node2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(84.5, 16.5)
+scale = Vector2(1.015, 0.966667)
+texture = ExtResource("2_a8m4y")
+
+[node name="Keys" type="Node2D" parent="."]
+
+[node name="KeyA" type="Node2D" parent="Keys"]
 position = Vector2(4, 15)
 metadata/keycode = 65
 
-[node name="Normal" type="Sprite2D" parent="KeyA"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyA"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(48, 48, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyA"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyA"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(48, 144, 16, 16)
 
-[node name="KeyB" type="Node2D" parent="."]
+[node name="KeyB" type="Node2D" parent="Keys"]
 position = Vector2(72, 30)
 metadata/keycode = 66
 
-[node name="Normal" type="Sprite2D" parent="KeyB"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyB"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(112, 64, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyB"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyB"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(112, 160, 16, 16)
 
-[node name="KeyC" type="Node2D" parent="."]
+[node name="KeyC" type="Node2D" parent="Keys"]
 position = Vector2(40, 30)
 metadata/keycode = 67
 
-[node name="Normal" type="Sprite2D" parent="KeyC"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyC"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(80, 64, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyC"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyC"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(80, 160, 16, 16)
 
-[node name="KeyD" type="Node2D" parent="."]
+[node name="KeyD" type="Node2D" parent="Keys"]
 position = Vector2(36, 15)
 metadata/keycode = 68
 
-[node name="Normal" type="Sprite2D" parent="KeyD"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyD"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(80, 48, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyD"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyD"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(80, 144, 16, 16)
 
-[node name="KeyE" type="Node2D" parent="."]
+[node name="KeyE" type="Node2D" parent="Keys"]
 position = Vector2(32, 0)
 metadata/keycode = 69
 
-[node name="Normal" type="Sprite2D" parent="KeyE"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyE"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyE"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyE"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(80, 128, 16, 16)
 
-[node name="KeyF" type="Node2D" parent="."]
+[node name="KeyF" type="Node2D" parent="Keys"]
 position = Vector2(52, 15)
 metadata/keycode = 70
 
-[node name="Normal" type="Sprite2D" parent="KeyF"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyF"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(96, 48, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyF"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyF"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(96, 144, 16, 16)
 
-[node name="KeyG" type="Node2D" parent="."]
+[node name="KeyG" type="Node2D" parent="Keys"]
 position = Vector2(68, 15)
 metadata/keycode = 71
 
-[node name="Normal" type="Sprite2D" parent="KeyG"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyG"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(112, 48, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyG"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyG"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(112, 144, 16, 16)
 
-[node name="KeyH" type="Node2D" parent="."]
+[node name="KeyH" type="Node2D" parent="Keys"]
 position = Vector2(84, 15)
 metadata/keycode = 72
 
-[node name="Normal" type="Sprite2D" parent="KeyH"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyH"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(128, 48, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyH"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyH"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(128, 144, 16, 16)
 
-[node name="KeyI" type="Node2D" parent="."]
+[node name="KeyI" type="Node2D" parent="Keys"]
 position = Vector2(112, 0)
 metadata/keycode = 73
 
-[node name="Normal" type="Sprite2D" parent="KeyI"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyI"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(160, 32, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyI"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyI"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(160, 128, 16, 16)
 
-[node name="KeyJ" type="Node2D" parent="."]
+[node name="KeyJ" type="Node2D" parent="Keys"]
 position = Vector2(100, 15)
 metadata/keycode = 74
 
-[node name="Normal" type="Sprite2D" parent="KeyJ"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyJ"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(144, 48, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyJ"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyJ"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(144, 144, 16, 16)
 
-[node name="KeyK" type="Node2D" parent="."]
+[node name="KeyK" type="Node2D" parent="Keys"]
 position = Vector2(116, 15)
 metadata/keycode = 75
 
-[node name="Normal" type="Sprite2D" parent="KeyK"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyK"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(160, 48, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyK"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyK"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(160, 144, 16, 16)
 
-[node name="KeyL" type="Node2D" parent="."]
+[node name="KeyL" type="Node2D" parent="Keys"]
 position = Vector2(132, 15)
 metadata/keycode = 76
 
-[node name="Normal" type="Sprite2D" parent="KeyL"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyL"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(176, 48, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyL"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyL"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(176, 144, 16, 16)
 
-[node name="KeyM" type="Node2D" parent="."]
+[node name="KeyM" type="Node2D" parent="Keys"]
 position = Vector2(104, 30)
 metadata/keycode = 77
 
-[node name="Normal" type="Sprite2D" parent="KeyM"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyM"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(144, 64, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyM"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyM"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(144, 160, 16, 16)
 
-[node name="KeyN" type="Node2D" parent="."]
+[node name="KeyN" type="Node2D" parent="Keys"]
 position = Vector2(88, 30)
 metadata/keycode = 78
 
-[node name="Normal" type="Sprite2D" parent="KeyN"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyN"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(128, 64, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyN"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyN"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(128, 160, 16, 16)
 
-[node name="KeyO" type="Node2D" parent="."]
+[node name="KeyO" type="Node2D" parent="Keys"]
 position = Vector2(128, 0)
 metadata/keycode = 79
 
-[node name="Normal" type="Sprite2D" parent="KeyO"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyO"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(176, 32, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyO"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyO"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(176, 128, 16, 16)
 
-[node name="KeyP" type="Node2D" parent="."]
+[node name="KeyP" type="Node2D" parent="Keys"]
 position = Vector2(144, 0)
 metadata/keycode = 80
 
-[node name="Normal" type="Sprite2D" parent="KeyP"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyP"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(192, 32, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyP"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyP"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(192, 128, 16, 16)
 
-[node name="KeyQ" type="Node2D" parent="."]
+[node name="KeyQ" type="Node2D" parent="Keys"]
 metadata/keycode = 81
 
-[node name="Normal" type="Sprite2D" parent="KeyQ"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyQ"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(48, 32, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyQ"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyQ"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(48, 128, 16, 16)
 
-[node name="KeyR" type="Node2D" parent="."]
+[node name="KeyR" type="Node2D" parent="Keys"]
 position = Vector2(48, 0)
 metadata/keycode = 82
 
-[node name="Normal" type="Sprite2D" parent="KeyR"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyR"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(96, 32, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyR"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyR"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(96, 128, 16, 16)
 
-[node name="KeyS" type="Node2D" parent="."]
+[node name="KeyS" type="Node2D" parent="Keys"]
 position = Vector2(20, 15)
 metadata/keycode = 83
 
-[node name="Normal" type="Sprite2D" parent="KeyS"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyS"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(64, 48, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyS"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyS"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(64, 144, 16, 16)
 
-[node name="KeyT" type="Node2D" parent="."]
+[node name="KeyT" type="Node2D" parent="Keys"]
 position = Vector2(64, 0)
 metadata/keycode = 84
 
-[node name="Normal" type="Sprite2D" parent="KeyT"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyT"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(112, 32, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyT"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyT"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(112, 128, 16, 16)
 
-[node name="KeyU" type="Node2D" parent="."]
+[node name="KeyU" type="Node2D" parent="Keys"]
 position = Vector2(96, 0)
 metadata/keycode = 85
 
-[node name="Normal" type="Sprite2D" parent="KeyU"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyU"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(144, 32, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyU"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyU"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(144, 128, 16, 16)
 
-[node name="KeyV" type="Node2D" parent="."]
+[node name="KeyV" type="Node2D" parent="Keys"]
 position = Vector2(56, 30)
 metadata/keycode = 86
 
-[node name="Normal" type="Sprite2D" parent="KeyV"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyV"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(96, 64, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyV"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyV"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(96, 160, 16, 16)
 
-[node name="KeyW" type="Node2D" parent="."]
+[node name="KeyW" type="Node2D" parent="Keys"]
 position = Vector2(16, 0)
 metadata/keycode = 87
 
-[node name="Normal" type="Sprite2D" parent="KeyW"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyW"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(64, 32, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyW"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyW"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(64, 128, 16, 16)
 
-[node name="KeyX" type="Node2D" parent="."]
+[node name="KeyX" type="Node2D" parent="Keys"]
 position = Vector2(24, 30)
 metadata/keycode = 88
 
-[node name="Normal" type="Sprite2D" parent="KeyX"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyX"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(64, 64, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyX"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyX"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(64, 160, 16, 16)
 
-[node name="KeyY" type="Node2D" parent="."]
+[node name="KeyY" type="Node2D" parent="Keys"]
 position = Vector2(80, 0)
 metadata/keycode = 89
 
-[node name="Normal" type="Sprite2D" parent="KeyY"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyY"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(128, 32, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyY"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyY"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(128, 128, 16, 16)
 
-[node name="KeyZ" type="Node2D" parent="."]
+[node name="KeyZ" type="Node2D" parent="Keys"]
 position = Vector2(8, 30)
 metadata/keycode = 90
 
-[node name="Normal" type="Sprite2D" parent="KeyZ"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyZ"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(48, 64, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyZ"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyZ"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(48, 160, 16, 16)
 
-[node name="Key1" type="Node2D" parent="."]
+[node name="Key1" type="Node2D" parent="Keys"]
 position = Vector2(-4, -15)
 metadata/keycode = 49
 
-[node name="Normal" type="Sprite2D" parent="Key1"]
+[node name="Normal" type="Sprite2D" parent="Keys/Key1"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(48, 16, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="Key1"]
+[node name="Pressed" type="Sprite2D" parent="Keys/Key1"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(48, 113, 16, 16)
 
-[node name="Key2" type="Node2D" parent="."]
+[node name="Key2" type="Node2D" parent="Keys"]
 position = Vector2(12, -15)
 metadata/keycode = 50
 
-[node name="Normal" type="Sprite2D" parent="Key2"]
+[node name="Normal" type="Sprite2D" parent="Keys/Key2"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(64, 16, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="Key2"]
+[node name="Pressed" type="Sprite2D" parent="Keys/Key2"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(64, 112, 16, 16)
 
-[node name="Key3" type="Node2D" parent="."]
+[node name="Key3" type="Node2D" parent="Keys"]
 position = Vector2(28, -15)
 metadata/keycode = 51
 
-[node name="Normal" type="Sprite2D" parent="Key3"]
+[node name="Normal" type="Sprite2D" parent="Keys/Key3"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(80, 16, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="Key3"]
+[node name="Pressed" type="Sprite2D" parent="Keys/Key3"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(80, 112, 16, 16)
 
-[node name="Key4" type="Node2D" parent="."]
+[node name="Key4" type="Node2D" parent="Keys"]
 position = Vector2(44, -15)
 metadata/keycode = 52
 
-[node name="Normal" type="Sprite2D" parent="Key4"]
+[node name="Normal" type="Sprite2D" parent="Keys/Key4"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(96, 16, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="Key4"]
+[node name="Pressed" type="Sprite2D" parent="Keys/Key4"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(96, 112, 16, 16)
 
-[node name="Key5" type="Node2D" parent="."]
+[node name="Key5" type="Node2D" parent="Keys"]
 position = Vector2(60, -15)
 metadata/keycode = 53
 
-[node name="Normal" type="Sprite2D" parent="Key5"]
+[node name="Normal" type="Sprite2D" parent="Keys/Key5"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(112, 16, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="Key5"]
+[node name="Pressed" type="Sprite2D" parent="Keys/Key5"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(112, 112, 16, 16)
 
-[node name="Key6" type="Node2D" parent="."]
+[node name="Key6" type="Node2D" parent="Keys"]
 position = Vector2(76, -15)
 metadata/keycode = 54
 
-[node name="Normal" type="Sprite2D" parent="Key6"]
+[node name="Normal" type="Sprite2D" parent="Keys/Key6"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(128, 16, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="Key6"]
+[node name="Pressed" type="Sprite2D" parent="Keys/Key6"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(128, 112, 16, 16)
 
-[node name="Key7" type="Node2D" parent="."]
+[node name="Key7" type="Node2D" parent="Keys"]
 position = Vector2(92, -15)
 metadata/keycode = 55
 
-[node name="Normal" type="Sprite2D" parent="Key7"]
+[node name="Normal" type="Sprite2D" parent="Keys/Key7"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(144, 16, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="Key7"]
+[node name="Pressed" type="Sprite2D" parent="Keys/Key7"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(144, 112, 16, 16)
 
-[node name="Key8" type="Node2D" parent="."]
+[node name="Key8" type="Node2D" parent="Keys"]
 position = Vector2(108, -15)
 metadata/keycode = 56
 
-[node name="Normal" type="Sprite2D" parent="Key8"]
+[node name="Normal" type="Sprite2D" parent="Keys/Key8"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(160, 16, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="Key8"]
+[node name="Pressed" type="Sprite2D" parent="Keys/Key8"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(160, 112, 16, 16)
 
-[node name="Key9" type="Node2D" parent="."]
+[node name="Key9" type="Node2D" parent="Keys"]
 position = Vector2(124, -15)
 metadata/keycode = 57
 
-[node name="Normal" type="Sprite2D" parent="Key9"]
+[node name="Normal" type="Sprite2D" parent="Keys/Key9"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(176, 16, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="Key9"]
+[node name="Pressed" type="Sprite2D" parent="Keys/Key9"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(176, 112, 16, 16)
 
-[node name="Key0" type="Node2D" parent="."]
+[node name="Key0" type="Node2D" parent="Keys"]
 position = Vector2(140, -15)
 metadata/keycode = 48
 
-[node name="Normal" type="Sprite2D" parent="Key0"]
+[node name="Normal" type="Sprite2D" parent="Keys/Key0"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(192, 16, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="Key0"]
+[node name="Pressed" type="Sprite2D" parent="Keys/Key0"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(192, 112, 16, 16)
 
-[node name="KeyMinus" type="Node2D" parent="."]
+[node name="KeyMinus" type="Node2D" parent="Keys"]
 position = Vector2(156, -14)
 metadata/keycode = 45
 
-[node name="Normal" type="Sprite2D" parent="KeyMinus"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyMinus"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(48, 208, 16, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyMinus"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyMinus"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
@@ -635,34 +644,36 @@ offset = Vector2(0, -1)
 region_enabled = true
 region_rect = Rect2(48, 225, 16, 16)
 
-[node name="KeyEnter" type="Node2D" parent="."]
+[node name="KeyEnter" type="Node2D" parent="Keys"]
 position = Vector2(180, 16)
 metadata/keycode = 4194309
 
-[node name="Normal" type="Sprite2D" parent="KeyEnter"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeyEnter"]
 texture_filter = 1
+position = Vector2(-17, 0)
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(192, 49, 48, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeyEnter"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeyEnter"]
 visible = false
 texture_filter = 1
+position = Vector2(-17, 0)
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(192, 145, 48, 16)
 
-[node name="KeySpace" type="Node2D" parent="."]
+[node name="KeySpace" type="Node2D" parent="Keys"]
 position = Vector2(71, 46)
 metadata/keycode = 32
 
-[node name="Normal" type="Sprite2D" parent="KeySpace"]
+[node name="Normal" type="Sprite2D" parent="Keys/KeySpace"]
 texture_filter = 1
 texture = ExtResource("1_attx4")
 region_enabled = true
 region_rect = Rect2(80, 81, 80, 16)
 
-[node name="Pressed" type="Sprite2D" parent="KeySpace"]
+[node name="Pressed" type="Sprite2D" parent="Keys/KeySpace"]
 visible = false
 texture_filter = 1
 texture = ExtResource("1_attx4")
