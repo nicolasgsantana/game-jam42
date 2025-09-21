@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0o15m0gcrvwr"]
+[gd_scene load_steps=16 format=3 uid="uid://c0o15m0gcrvwr"]
 
 [ext_resource type="PackedScene" uid="uid://dh7wnq0py58i0" path="res://scenes/utils/input_handler.tscn" id="1_72ix8"]
 [ext_resource type="Texture2D" uid="uid://iq7p32wywouq" path="res://sprites/MonoCinza.png" id="1_ubwgw"]
@@ -8,9 +8,56 @@
 [ext_resource type="Script" uid="uid://cooprrrg3fon0" path="res://scripts/game_manager.gd" id="3_y0acb"]
 [ext_resource type="PackedScene" uid="uid://fe2x7nv7v5tp" path="res://scenes/combat_area.tscn" id="4_j4d2a"]
 [ext_resource type="Texture2D" uid="uid://bnqpoxevqsnw4" path="res://icon.svg" id="8_vkq25"]
+[ext_resource type="Texture2D" uid="uid://dknmmflaandke" path="res://sprites/boss/boos-move.png" id="9_7lrji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6bv0"]
 size = Vector2(47.5, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rssyh"]
+atlas = ExtResource("9_7lrji")
+region = Rect2(35, 58, 477, 441)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwp66"]
+atlas = ExtResource("9_7lrji")
+region = Rect2(512, 58, 477, 441)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xkjh"]
+atlas = ExtResource("9_7lrji")
+region = Rect2(35, 499, 477, 441)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj21o"]
+atlas = ExtResource("9_7lrji")
+region = Rect2(512, 499, 477, 441)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ui35"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"YOU-LOSE",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"boss-died",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_rssyh")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_hwp66")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_2xkjh")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_dj21o")
+}],
+"loop": true,
+"name": &"boss-move",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D"]
 
@@ -149,6 +196,17 @@ debug_color = Color(4.21144e-08, 0.091236, 0.113562, 0.42)
 position = Vector2(1847, 1001)
 scale = Vector2(0.816407, 0.722656)
 texture = ExtResource("8_vkq25")
+
+[node name="Boss" type="CharacterBody2D" parent="."]
+
+[node name="Mou" type="Sprite2D" parent="Boss"]
+
+[node name="Moulinette" type="AnimatedSprite2D" parent="Boss"]
+position = Vector2(1570, 359)
+scale = Vector2(1.27324, 1.27324)
+sprite_frames = SubResource("SpriteFrames_6ui35")
+animation = &"boss-move"
+frame_progress = 0.234084
 
 [connection signal="buffer_changed" from="InputHandler" to="GameManager" method="_on_input_handler_buffer_changed"]
 [connection signal="buffer_changed" from="InputHandler" to="CommandLine" method="_on_input_handler_buffer_changed"]
