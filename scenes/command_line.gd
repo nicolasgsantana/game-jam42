@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _on_input_handler_buffer_changed(buffer: Array) -> void:
 	var player_input: String = ""
 	
