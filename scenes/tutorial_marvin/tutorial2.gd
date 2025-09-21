@@ -10,7 +10,7 @@ var escrevendo = false
 
 # Lista de falas
 var falas = [
-	"Veja aquele monstrinho ali? Ele tem um comando escrito acima dele.",
+	"Veja aquele monstrinho ali? Ele tem um comando escrito abaixo dele.",
 	"Digite exatamente aquilo no teclado, e puff... ele desaparece.",
 	"Não esqueça de pressionar o enter",
 	"Estou torcendo por você!"
