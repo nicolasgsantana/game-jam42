@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://t3xu037ejxsq"]
+
+[ext_resource type="Script" uid="uid://cbeqbe84hjyqs" path="res://scenes/powers/node.gd" id="1_0c4ir"]
+[ext_resource type="Texture2D" uid="uid://2maijlvy82lf" path="res://sprites/image.png" id="2_ejp8w"]
+[ext_resource type="Texture2D" uid="uid://dci03t3yyhce4" path="res://sprites/heat_power.png" id="3_rkk4x"]
+
+[node name="Life" type="Node2D"]
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_0c4ir")
+
+[node name="RecoverTime" type="Timer" parent="Node"]
+wait_time = 3.0
+
+[node name="Vidas" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 69.0
+offset_right = 84.0
+offset_bottom = 92.0
+text = "Vidas: 3"
+
+[node name="duck" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(35, 25)
+scale = Vector2(2.63055, 2.63055)
+texture = ExtResource("2_ejp8w")
+
+[node name="duck2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(75, 25)
+scale = Vector2(2.63055, 2.63055)
+texture = ExtResource("2_ejp8w")
+
+[node name="duck3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(115, 25)
+scale = Vector2(2.63055, 2.63055)
+texture = ExtResource("2_ejp8w")
+
+[node name="PowerLife" type="Node" parent="."]
+
+[node name="power_life_on" type="Sprite2D" parent="PowerLife"]
+position = Vector2(1087.5, 578)
+texture = ExtResource("3_rkk4x")
+region_enabled = true
+region_rect = Rect2(0, 0, 63, 64.5)
+
+[node name="power_life_off" type="Sprite2D" parent="PowerLife"]
+position = Vector2(1089.5, 580)
+texture = ExtResource("3_rkk4x")
+region_enabled = true
+region_rect = Rect2(0, 64, 63, 64)
+
+[connection signal="timeout" from="Node/RecoverTime" to="Node" method="_on_recover_time_timeout"]
