@@ -24,6 +24,7 @@ position = Vector2(2016, 482)
 position = Vector2(2133, 481)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
 autostart = true
 
 [node name="EnemySpawnArea" type="ColorRect" parent="."]

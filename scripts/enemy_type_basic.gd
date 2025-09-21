@@ -43,6 +43,10 @@ func word_feedback(buffer: Array) -> void:
 	for c in buffer:
 		player_input += char(c)
 	if player_input in command:
+		var space_count = command.length() - player_input.length()
+		while space_count > 0:
+			player_input += " "
+			space_count -= 1
 		$Control/CorrectLabel.text = player_input
 	else:
 		$Control/CorrectLabel.text = ""

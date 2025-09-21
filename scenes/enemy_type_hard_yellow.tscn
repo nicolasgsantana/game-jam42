@@ -1,0 +1,166 @@
+[gd_scene load_steps=20 format=3 uid="uid://rmnf6r1qli6d"]
+
+[ext_resource type="Script" uid="uid://c5yki4mtp3ubs" path="res://scripts/enemy_type_basic.gd" id="1_odkgk"]
+[ext_resource type="Texture2D" uid="uid://b5qlryswhfncm" path="res://sprites/enemies/EXPLOSAO-INIMIGO-3.png" id="1_u0ukd"]
+[ext_resource type="Texture2D" uid="uid://cn8gwpg1t5h65" path="res://sprites/enemies/INIMIGO-3.png" id="2_5kfwb"]
+[ext_resource type="FontFile" uid="uid://bi827si2beog3" path="res://text/PixelOperator8.ttf" id="3_5kfwb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hoev"]
+atlas = ExtResource("1_u0ukd")
+region = Rect2(17, 91, 33, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272v1"]
+atlas = ExtResource("1_u0ukd")
+region = Rect2(50, 91, 33, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ihn"]
+atlas = ExtResource("1_u0ukd")
+region = Rect2(83, 91, 33, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o72ys"]
+atlas = ExtResource("1_u0ukd")
+region = Rect2(116, 91, 33, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8xh7"]
+atlas = ExtResource("1_u0ukd")
+region = Rect2(149, 91, 33, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt36s"]
+atlas = ExtResource("1_u0ukd")
+region = Rect2(182, 91, 33, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y8tj"]
+atlas = ExtResource("1_u0ukd")
+region = Rect2(215, 91, 33, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a6by"]
+atlas = ExtResource("1_u0ukd")
+region = Rect2(248, 91, 33, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3ucn"]
+atlas = ExtResource("1_u0ukd")
+region = Rect2(281, 91, 33, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kuh3"]
+atlas = ExtResource("1_u0ukd")
+region = Rect2(314, 91, 33, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjdk5"]
+atlas = ExtResource("2_5kfwb")
+region = Rect2(7, 89, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05mmp"]
+atlas = ExtResource("2_5kfwb")
+region = Rect2(27, 89, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1ued"]
+atlas = ExtResource("2_5kfwb")
+region = Rect2(47, 89, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jac5"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4hoev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0ihn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o72ys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8xh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt36s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y8tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a6by")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3ucn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kuh3")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjdk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05mmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1ued")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vcd3"]
+
+[node name="EnemyTypeHardYellow" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_odkgk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(12, 0)
+sprite_frames = SubResource("SpriteFrames_3jac5")
+animation = &"Walk"
+autoplay = "Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 1)
+shape = SubResource("RectangleShape2D_6vcd3")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 39.0
+offset_bottom = 13.0
+
+[node name="CommandLabel" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.75
+offset_top = 11.0
+offset_right = 34.25
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_5kfwb")
+vertical_alignment = 1
+
+[node name="CorrectLabel" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.75
+offset_top = 11.0
+offset_right = 34.25
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_5kfwb")
+vertical_alignment = 1

@@ -1,0 +1,159 @@
+[gd_scene load_steps=19 format=3 uid="uid://7kimbv724dhh"]
+
+[ext_resource type="Texture2D" uid="uid://caa5rd0tlexik" path="res://sprites/enemies/EXPLOSAO-INIMIGO-2.png" id="1_1gnxt"]
+[ext_resource type="Script" uid="uid://c5yki4mtp3ubs" path="res://scripts/enemy_type_basic.gd" id="1_dpplg"]
+[ext_resource type="Texture2D" uid="uid://04ni3658shbc" path="res://sprites/enemies/INIMIGO-2.png" id="2_jw4p8"]
+[ext_resource type="FontFile" uid="uid://bi827si2beog3" path="res://text/PixelOperator8.ttf" id="3_jw4p8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a86g"]
+atlas = ExtResource("1_1gnxt")
+region = Rect2(12, 156, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1emx"]
+atlas = ExtResource("1_1gnxt")
+region = Rect2(48, 156, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j14wu"]
+atlas = ExtResource("1_1gnxt")
+region = Rect2(84, 156, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3kws"]
+atlas = ExtResource("1_1gnxt")
+region = Rect2(120, 156, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mo4e"]
+atlas = ExtResource("1_1gnxt")
+region = Rect2(156, 156, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pusef"]
+atlas = ExtResource("1_1gnxt")
+region = Rect2(192, 156, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyh42"]
+atlas = ExtResource("1_1gnxt")
+region = Rect2(228, 156, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wgjq"]
+atlas = ExtResource("1_1gnxt")
+region = Rect2(264, 156, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g435"]
+atlas = ExtResource("1_1gnxt")
+region = Rect2(300, 156, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es4j0"]
+atlas = ExtResource("2_jw4p8")
+region = Rect2(12, 86, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egq42"]
+atlas = ExtResource("2_jw4p8")
+region = Rect2(32, 86, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl0cn"]
+atlas = ExtResource("2_jw4p8")
+region = Rect2(52, 86, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jac5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a86g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1emx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j14wu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3kws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mo4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pusef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyh42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wgjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g435")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_es4j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egq42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl0cn")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vcd3"]
+
+[node name="EnemyTypeMediumYellow" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_dpplg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(12, 0)
+sprite_frames = SubResource("SpriteFrames_3jac5")
+animation = &"Walk"
+autoplay = "Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 1)
+shape = SubResource("RectangleShape2D_6vcd3")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 39.0
+offset_bottom = 13.0
+
+[node name="CommandLabel" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.75
+offset_top = 11.0
+offset_right = 34.25
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_jw4p8")
+vertical_alignment = 1
+
+[node name="CorrectLabel" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.75
+offset_top = 11.0
+offset_right = 34.25
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_jw4p8")
+vertical_alignment = 1

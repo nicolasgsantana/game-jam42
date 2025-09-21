@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://x677g0l00lb3"]
+[gd_scene load_steps=15 format=3 uid="uid://x677g0l00lb3"]
 
 [ext_resource type="Texture2D" uid="uid://dt3h3qfv6xvku" path="res://sprites/enemies/EXPLOSAO-INIMIGO-1.png" id="1_0dbke"]
-[ext_resource type="Script" uid="uid://c5yki4mtp3ubs" path="res://scripts/enemy_type_1_green.gd" id="1_8176h"]
+[ext_resource type="Script" uid="uid://c5yki4mtp3ubs" path="res://scripts/enemy_type_basic.gd" id="1_8176h"]
 [ext_resource type="Texture2D" uid="uid://dk06v6hw3p203" path="res://sprites/enemies/INIMIGO-1.png" id="2_ih416"]
+[ext_resource type="FontFile" uid="uid://bi827si2beog3" path="res://text/PixelOperator8.ttf" id="5_dbwo6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yecoa"]
 atlas = ExtResource("1_0dbke")
@@ -78,15 +79,17 @@ animations = [{
 [node name="EnemyType1Green" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_8176h")
+difficulty = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(-1.25, 0)
 sprite_frames = SubResource("SpriteFrames_3jac5")
 animation = &"Walk"
 autoplay = "Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 1)
+position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_6vcd3")
 
 [node name="Control" type="Control" parent="."]
@@ -101,13 +104,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -7.0
+offset_left = -6.75
 offset_top = 11.0
-offset_right = 154.0
+offset_right = 34.25
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("5_dbwo6")
 vertical_alignment = 1
 
 [node name="CorrectLabel" type="Label" parent="Control"]
@@ -116,12 +120,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -7.0
+offset_left = -6.75
 offset_top = 11.0
-offset_right = 154.0
+offset_right = 34.25
 offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_dbwo6")
 vertical_alignment = 1

@@ -1,13 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0o15m0gcrvwr"]
+[gd_scene load_steps=10 format=3 uid="uid://c0o15m0gcrvwr"]
 
 [ext_resource type="PackedScene" uid="uid://dh7wnq0py58i0" path="res://scenes/utils/input_handler.tscn" id="1_72ix8"]
+[ext_resource type="Texture2D" uid="uid://iq7p32wywouq" path="res://sprites/MonoCinza.png" id="1_ubwgw"]
 [ext_resource type="PackedScene" uid="uid://difxhgx5j86wm" path="res://scenes/enemy_spawner_basic.tscn" id="2_2vj2h"]
 [ext_resource type="PackedScene" uid="uid://bvcx5saan0jut" path="res://scenes/keyboard.tscn" id="2_y0acb"]
 [ext_resource type="PackedScene" uid="uid://b8df74ncyro81" path="res://scenes/command_line.tscn" id="3_j4d2a"]
 [ext_resource type="Script" uid="uid://cooprrrg3fon0" path="res://scripts/game_manager.gd" id="3_y0acb"]
 [ext_resource type="PackedScene" uid="uid://fe2x7nv7v5tp" path="res://scenes/combat_area.tscn" id="4_j4d2a"]
+[ext_resource type="Texture2D" uid="uid://bnqpoxevqsnw4" path="res://icon.svg" id="8_vkq25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6bv0"]
+size = Vector2(47.5, 375)
 
 [node name="Main" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1917.0
+offset_bottom = 1066.0
+texture = ExtResource("1_ubwgw")
 
 [node name="ScoreLabel" type="CanvasLayer" parent="."]
 
@@ -56,6 +67,7 @@ offset_bottom = 675.0
 color = Color(0.729412, 0.0117647, 0, 0.878431)
 
 [node name="Combat_Area" type="ColorRect" parent="Molde"]
+visible = false
 offset_left = 542.0
 offset_top = 163.0
 offset_right = 1869.0
@@ -102,6 +114,7 @@ offset_right = 1840.0
 offset_bottom = 946.0
 
 [node name="ColorRect" type="ColorRect" parent="Molde/PowerUP_Area"]
+visible = false
 layout_mode = 0
 offset_left = 1743.0
 offset_top = 736.0
@@ -115,14 +128,27 @@ script = ExtResource("3_y0acb")
 score_label = NodePath("../ScoreLabel/Label")
 
 [node name="CombatArea" parent="." instance=ExtResource("4_j4d2a")]
+visible = false
 
 [node name="Keyboard" parent="." instance=ExtResource("2_y0acb")]
-position = Vector2(603, 785)
+position = Vector2(667, 828)
 scale = Vector2(4, 4)
 
 [node name="CommandLine" parent="." instance=ExtResource("3_j4d2a")]
-position = Vector2(607, 611)
+position = Vector2(646, 671)
 scale = Vector2(1.5, 1.5)
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(488, 351)
+shape = SubResource("RectangleShape2D_b6bv0")
+debug_color = Color(4.21144e-08, 0.091236, 0.113562, 0.42)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1847, 1001)
+scale = Vector2(0.816407, 0.722656)
+texture = ExtResource("8_vkq25")
 
 [connection signal="buffer_changed" from="InputHandler" to="GameManager" method="_on_input_handler_buffer_changed"]
 [connection signal="buffer_changed" from="InputHandler" to="CommandLine" method="_on_input_handler_buffer_changed"]

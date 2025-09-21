@@ -1,0 +1,145 @@
+[gd_scene load_steps=17 format=3 uid="uid://dyd2hxrpabef2"]
+
+[ext_resource type="Script" uid="uid://c5yki4mtp3ubs" path="res://scripts/enemy_type_basic.gd" id="1_oaejn"]
+[ext_resource type="Texture2D" uid="uid://dt3h3qfv6xvku" path="res://sprites/enemies/EXPLOSAO-INIMIGO-1.png" id="2_oaejn"]
+[ext_resource type="Texture2D" uid="uid://dk06v6hw3p203" path="res://sprites/enemies/INIMIGO-1.png" id="3_evxcl"]
+[ext_resource type="FontFile" uid="uid://bi827si2beog3" path="res://text/PixelOperator8.ttf" id="4_evxcl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umw5f"]
+atlas = ExtResource("2_oaejn")
+region = Rect2(19, 16, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a28dn"]
+atlas = ExtResource("2_oaejn")
+region = Rect2(52, 16, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k411n"]
+atlas = ExtResource("2_oaejn")
+region = Rect2(85, 16, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awr81"]
+atlas = ExtResource("2_oaejn")
+region = Rect2(118, 16, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m20bq"]
+atlas = ExtResource("2_oaejn")
+region = Rect2(151, 16, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4581w"]
+atlas = ExtResource("2_oaejn")
+region = Rect2(184, 16, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s04e1"]
+atlas = ExtResource("2_oaejn")
+region = Rect2(217, 16, 33, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psq0c"]
+atlas = ExtResource("3_evxcl")
+region = Rect2(4, 88, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uaml"]
+atlas = ExtResource("3_evxcl")
+region = Rect2(24, 88, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu87x"]
+atlas = ExtResource("3_evxcl")
+region = Rect2(44, 88, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jac5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umw5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a28dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k411n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awr81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m20bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4581w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s04e1")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psq0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uaml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu87x")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vcd3"]
+
+[node name="EnemyTypeEasyYellow" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_oaejn")
+difficulty = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3jac5")
+animation = &"Walk"
+autoplay = "Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_6vcd3")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 39.0
+offset_bottom = 13.0
+
+[node name="CommandLabel" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.75
+offset_top = 11.0
+offset_right = 34.25
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_evxcl")
+vertical_alignment = 1
+
+[node name="CorrectLabel" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.75
+offset_top = 11.0
+offset_right = 34.25
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_evxcl")
+vertical_alignment = 1

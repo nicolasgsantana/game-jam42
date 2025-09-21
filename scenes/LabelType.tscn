@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsy4unyv23fm4"]
+
+[ext_resource type="Texture2D" uid="uid://fxxb2k52pcu8" path="res://scenes/elements_label/Elements-01 (1).png" id="1_7lvcm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r56a"]
+atlas = ExtResource("1_7lvcm")
+region = Rect2(0, 500, 1200, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg5rp"]
+atlas = ExtResource("1_7lvcm")
+region = Rect2(0, 0, 1200, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdmrs"]
+atlas = ExtResource("1_7lvcm")
+region = Rect2(0, 1000, 1200, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jac5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r56a")
+}],
+"loop": false,
+"name": &"LabelGreen",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg5rp")
+}],
+"loop": true,
+"name": &"LabelRed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdmrs")
+}],
+"loop": true,
+"name": &"LabelYellow",
+"speed": 5.0
+}]
+
+[node name="LabelType" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.135209, 0.07925)
+sprite_frames = SubResource("SpriteFrames_3jac5")
+animation = &"LabelGreen"
