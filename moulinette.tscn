@@ -75,13 +75,11 @@ position = Vector2(-100, 200)
 [node name="Spawns" type="Node2D" parent="."]
 
 [node name="LifeTime" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 10.0
 one_shot = true
-autostart = true
 
 [node name="CoolDown" type="Timer" parent="."]
 wait_time = 0.9
-autostart = true
 
 [node name="MiniCoolDown" type="Timer" parent="."]
 wait_time = 0.2

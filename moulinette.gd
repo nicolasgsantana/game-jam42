@@ -8,18 +8,6 @@ var easy_enemies: Array[PackedScene] = [
 	preload("res://scenes/enemy_type_easy_yellow.tscn")
 ]
 
-var medium_enemies: Array[PackedScene] = [
-	preload("res://scenes/enemy_type_medium_green.tscn"),
-	preload("res://scenes/enemy_type_medium_red.tscn"),
-	preload("res://scenes/enemy_type_medium_yellow.tscn")
-]
-
-var hard_enemies: Array[PackedScene] = [
-	preload("res://scenes/enemy_type_hard_green.tscn"),
-	preload("res://scenes/enemy_type_hard_red.tscn"),
-	preload("res://scenes/enemy_type_hard_yellow.tscn")
-]
-
 @onready var spawn_points: Array[Node] = $"Spawn Points".get_children()
 @onready var enemy_node: Node = $Spawns
 
@@ -33,13 +21,10 @@ var callables: Array[Callable] = [
 	shoot_middle
 ]
 
-func _ready() -> void:
-	pass
-
-
-func _process(_delta: float) -> void:
-	pass
-
+func start_boss():
+	show()
+	$LifeTime.start()
+	$CoolDown.start()
 
 func shoot_full_row() -> void:
 	shoot_upper()
@@ -98,5 +83,6 @@ func _on_mini_cool_down_timeout() -> void:
 
 func _on_life_time_timeout() -> void:
 	for enemy in enemy_node.get_children():
-		enemy.queue_free()
+		enemy.die()
+	$CoolDown.stop()
 	defeated.emit()
