@@ -154,19 +154,6 @@ scale = Vector2(2.5, 2.5)
 position = Vector2(253, 583)
 scale = Vector2(5, 5)
 
-[node name="GameOverScreen" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-visible = false
-script = null
-
 [node name="sfx_main" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_2xkjh")
 volume_db = -5.0
